@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#6B4226" />
+  <link rel="canonical" href="<%= site.domain %><%= currentPath === '/' ? '' : currentPath %>" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="<%= site.name %>" />
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:description" content="<%= description %>" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:image" content="<%= site.domain %>/img/og-cover.jpg" />
+
+  <!-- Favicon (emoji SVG tạm — thay bằng logo thật khi có) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS đã biên dịch (không phụ thuộc CDN) -->
+  <link rel="stylesheet" href="/css/tailwind.css" />
+  <!-- CSS tùy biến + hiệu ứng chuyển động -->
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Structured data: Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "<%= site.name %>",
+    "image": "<%= site.domain %>/img/og-cover.jpg",
+    "url": "<%= site.domain %>",
+    "telephone": "+84<%= site.hotline.replace(/^0/, '') %>",
+    "email": "<%= site.email %>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "111 Nguyễn Chí Diễu",
+      "addressLocality": "Đà Nẵng",
+      "addressCountry": "VN"
+    },
+    "openingHours": "Mo-Su 07:00-19:00",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body class="bg-cream text-text-main antialiased font-sans overflow-x-hidden">

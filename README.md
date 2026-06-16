@@ -3,26 +3,101 @@
 Website giới thiệu năng lực B2B kết hợp trưng bày sản phẩm bán lẻ B2C cho
 **Công ty TNHH MTV Xướng Hương** – xưởng gạo tại 111 Nguyễn Chí Diễu, Đà Nẵng.
 
+Ứng dụng **Node.js + Express + EJS**, giao diện **Tailwind CSS (biên dịch sẵn)**,
+backend lưu form báo giá vào **MySQL** (có cơ chế dự phòng ghi file khi chưa có DB).
+
 ## 📞 Thông tin liên hệ
 - **Hotline:** 0935 999 087
 - **Zalo:** 0905 057 146
 - **Email:** gaodanang@gmail.com
 - **Địa chỉ:** 111 Nguyễn Chí Diễu, Đà Nẵng
 
+## 🚀 Khởi chạy nhanh
+
+```bash
+# 1. Cài thư viện
+npm install
+
+# 2. Tạo file cấu hình
+cp .env.example .env        # rồi sửa thông tin DB nếu có
+
+# 3. (Tùy chọn) build lại CSS sau khi đổi giao diện
+npm run build:css
+
+# 4. Chạy server
+npm start                   # http://localhost:3000
+# hoặc chế độ tự reload khi sửa code:
+npm run dev
+```
+
+> 💡 Website chạy được **ngay cả khi chưa cài MySQL**. Khi đó, các yêu cầu báo
+> giá được lưu tạm vào `data/contacts.jsonl` để không thất lạc dữ liệu.
+
+## 🗄️ Kết nối cơ sở dữ liệu (tùy chọn nhưng khuyến nghị)
+
+```bash
+# Tạo database + bảng + dữ liệu mẫu
+mysql -u root -p < database/schema.sql
+```
+
+Sau đó điền thông tin vào `.env`:
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=matkhau
+DB_NAME=gao_xuong_huong
+```
+Khởi động lại server — log sẽ hiện `✅ Kết nối MySQL thành công.`
+
 ## 📁 Cấu trúc dự án
+
 ```
 web-gao-xuong-huong/
-├── index.html                      # Trang chủ hoàn chỉnh (HTML5 + Tailwind CDN)
-├── assets/
-│   └── js/
-│       └── main.js                 # Menu mobile, xử lý form báo giá
-├── database/
-│   └── schema.sql                  # Schema MySQL: categories, products, contacts + seed data
-├── docs/
-│   ├── 01-thiet-ke-ui-ux.md        # PHẦN 1: Logo, bảng màu, sitemap, UX
-│   └── 02-noi-dung-copywriting.md  # PHẦN 2: Toàn bộ nội dung văn bản (copywriting)
-└── README.md
+├── server.js                  # Điểm khởi động
+├── tailwind.config.js         # Cấu hình Tailwind (màu thương hiệu)
+├── .env.example               # Mẫu biến môi trường
+├── src/
+│   ├── app.js                 # Cấu hình Express, view engine, static, routes
+│   ├── db.js                  # Pool MySQL + fallback ghi file JSONL
+│   ├── data/
+│   │   ├── site.js            # Thông tin liên hệ, số liệu (đọc từ .env)
+│   │   └── catalog.js         # 5 danh mục gạo (nguồn render giao diện)
+│   ├── controllers/
+│   │   └── contacts.js        # Validate + lưu form báo giá
+│   ├── routes/
+│   │   ├── pages.js           # Route các trang
+│   │   ├── api.js             # POST /api/contacts (có rate-limit)
+│   │   └── admin.js           # /admin/lien-he (Basic Auth)
+│   └── styles/input.css       # Nguồn biên dịch Tailwind
+├── views/                     # Giao diện EJS
+│   ├── partials/              # head, header, footer, floating, quote-form, scripts
+│   ├── home.ejs               # Trang chủ
+│   ├── about.ejs              # Giới thiệu (câu chuyện, timeline, chứng nhận)
+│   ├── products.ejs           # Danh sách 5 dòng gạo
+│   ├── product-detail.ejs     # Chi tiết từng dòng gạo
+│   ├── contact.ejs            # Liên hệ + bản đồ + form
+│   ├── admin-contacts.ejs     # Bảng quản trị liên hệ
+│   └── 404.ejs / 500.ejs
+├── public/
+│   ├── css/tailwind.css       # Tailwind đã biên dịch (commit sẵn)
+│   ├── css/styles.css         # CSS tùy biến + hiệu ứng chuyển động
+│   ├── js/main.js             # Menu, reveal, đếm số, submit form AJAX
+│   └── img/                   # ẢNH THẬT đặt vào đây (xem img/README.md)
+├── database/schema.sql        # Schema MySQL + seed
+└── docs/                      # Tài liệu thiết kế UI/UX & copywriting
 ```
+
+## 🌐 Các trang & API
+
+| Đường dẫn | Mô tả |
+|---|---|
+| `/` | Trang chủ |
+| `/gioi-thieu` | Giới thiệu xưởng, hành trình, chứng nhận |
+| `/san-pham` | Danh sách 5 dòng gạo |
+| `/san-pham/:slug` | Chi tiết dòng gạo (vd: `/san-pham/gao-dac-san`) |
+| `/lien-he` | Liên hệ + bản đồ + form báo giá |
+| `POST /api/contacts` | Nhận & lưu yêu cầu báo giá (JSON) |
+| `/admin/lien-he` | Xem danh sách liên hệ (Basic Auth, cấu hình trong `.env`) |
 
 ## 🎨 Bảng màu thương hiệu
 | Vai trò | Hex |
@@ -35,30 +110,21 @@ web-gao-xuong-huong/
 | Text | `#2E2117` |
 | Zalo/Call | `#2FAE60` |
 
-## 🚀 Chạy thử
-Đây là trang tĩnh, mở trực tiếp `index.html` bằng trình duyệt, hoặc chạy server tĩnh:
-```bash
-python3 -m http.server 8000
-# Mở http://localhost:8000
-```
+## ✨ Hiệu ứng chuyển động
+- Hero ảnh nền hiệu ứng **Ken Burns** (zoom chậm), chữ xuất hiện so le (stagger).
+- **Reveal khi cuộn** (fade-up) cho mọi khối nội dung qua IntersectionObserver.
+- **Đếm số** năng lực (count-up) khi khối thống kê vào màn hình.
+- Header **thu gọn** khi cuộn, gạch chân menu động, nút hiệu ứng **shine**.
+- Card sản phẩm **zoom ảnh** khi hover, icon nảy, nút Zalo có **vòng sóng**.
+- Hamburger biến thành **dấu X**, menu mobile trượt mượt.
+- Tôn trọng `prefers-reduced-motion` (tắt hiệu ứng cho người nhạy cảm chuyển động).
 
-## 🗄️ Khởi tạo cơ sở dữ liệu
-```bash
-mysql -u root -p < database/schema.sql
-```
+## 🖼️ Thêm ảnh & video xưởng
+Đặt ảnh thật vào `public/img/` theo đúng tên file liệt kê trong
+[`public/img/README.md`](public/img/README.md) — website tự hiển thị, không cần
+sửa code. Khi thiếu ảnh, site tự dùng `placeholder.svg` nên không bao giờ bị vỡ layout.
 
-## ✨ Tính năng trang chủ
-- Header sticky (menu + Hotline + nút Zalo), top-bar thông tin liên hệ.
-- Hero banner với 2 nút CTA (Báo giá / Zalo) + badge chứng nhận.
-- Lưới 5 danh mục sản phẩm — tất cả dùng nút "Liên hệ nhận báo giá" (không hiển thị giá).
-- Khối USP: giá tận gốc, năng lực cung ứng, giao tận nơi.
-- Khối số liệu năng lực + quy trình giao hàng 4 bước.
-- Form nhận báo giá sỉ (validate phía client, sẵn sàng nối backend `/api/contacts`).
-- Footer 4 cột đầy đủ thông tin + địa chỉ 111 Nguyễn Chí Diễu.
-- Nút Zalo nổi (desktop) + sticky bottom bar Gọi/Zalo (mobile).
-- Chuẩn SEO: meta tags, Open Graph, structured data LocalBusiness.
-
-## 📝 Ghi chú triển khai backend (gợi ý)
-Form báo giá đã chuẩn bị sẵn `payload` JSON. Để lưu vào bảng `contacts`,
-tạo endpoint `POST /api/contacts` (Node/Express, PHP, Laravel...) nhận các
-trường: `full_name, phone, email, customer_type, product_interest, quantity, message`.
+## 🚢 Triển khai (gợi ý)
+- Chạy `npm start` sau reverse proxy (Nginx) hoặc deploy lên Render/Railway/VPS.
+- Đặt `NODE_ENV=production` để bật cache static 7 ngày.
+- Đổi `ADMIN_PASSWORD` trong `.env` trước khi lên production.

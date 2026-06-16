@@ -1,0 +1,59 @@
+<%- include('partials/head') %>
+
+<div class="min-h-screen bg-cream">
+  <header class="bg-primary-dark text-cream">
+    <div class="container mx-auto py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="grid place-items-center w-10 h-10 rounded-full bg-accent text-primary-dark text-lg">🌾</span>
+        <div>
+          <h1 class="font-serif font-bold text-lg leading-none">Quản trị · Liên hệ &amp; Báo giá</h1>
+          <p class="text-cream/70 text-xs mt-0.5">Nguồn dữ liệu: <%= storage %></p>
+        </div>
+      </div>
+      <a href="/" class="text-sm text-cream/80 hover:text-accent transition">← Về website</a>
+    </div>
+  </header>
+
+  <main class="container mx-auto py-8">
+    <div class="flex items-center justify-between mb-5">
+      <h2 class="font-bold text-xl text-primary">Tổng cộng: <%= contacts.length %> yêu cầu</h2>
+    </div>
+
+    <% if (contacts.length === 0) { %>
+      <div class="bg-white rounded-2xl border border-border-soft p-10 text-center text-text-soft">
+        Chưa có yêu cầu liên hệ nào.
+      </div>
+    <% } else { %>
+      <div class="overflow-x-auto bg-white rounded-2xl border border-border-soft shadow-card">
+        <table class="w-full text-sm">
+          <thead class="bg-cream-2 text-primary text-left">
+            <tr>
+              <th class="px-4 py-3 font-semibold">Thời gian</th>
+              <th class="px-4 py-3 font-semibold">Họ tên</th>
+              <th class="px-4 py-3 font-semibold">Điện thoại</th>
+              <th class="px-4 py-3 font-semibold">Loại KH</th>
+              <th class="px-4 py-3 font-semibold">Gạo quan tâm</th>
+              <th class="px-4 py-3 font-semibold">Số lượng</th>
+              <th class="px-4 py-3 font-semibold">Lời nhắn</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border-soft">
+            <% contacts.forEach(function(c){ %>
+              <tr class="hover:bg-cream/60 align-top">
+                <td class="px-4 py-3 whitespace-nowrap text-text-soft"><%= new Date(c.created_at).toLocaleString('vi-VN') %></td>
+                <td class="px-4 py-3 font-medium text-text-main"><%= c.full_name %></td>
+                <td class="px-4 py-3 whitespace-nowrap"><a href="tel:<%= c.phone %>" class="text-primary font-semibold"><%= c.phone %></a></td>
+                <td class="px-4 py-3"><%= c.customer_type %></td>
+                <td class="px-4 py-3"><%= c.product_interest || '—' %></td>
+                <td class="px-4 py-3"><%= c.quantity || '—' %></td>
+                <td class="px-4 py-3 max-w-xs text-text-soft"><%= c.message || '—' %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </main>
+</div>
+</body>
+</html>

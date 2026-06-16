@@ -1,0 +1,91 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <!-- ===================== PAGE HERO ===================== -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('/img/lien-he-banner.jpg')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container mx-auto relative z-10 text-cream text-center py-20 md:py-28">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="/">Trang chủ</a> <span>/</span> <span>Liên hệ</span>
+      </nav>
+      <h1 class="hero-fade font-serif text-4xl md:text-5xl font-extrabold text-shadow" style="--d:.1s">Liên Hệ Nhận Báo Giá</h1>
+      <p class="hero-fade mt-4 text-cream/90 max-w-2xl mx-auto text-shadow" style="--d:.25s">Xướng Hương luôn sẵn sàng tư vấn và gửi bảng giá tốt nhất cho bạn – 7 ngày trong tuần.</p>
+    </div>
+  </section>
+
+  <!-- ===================== THẺ LIÊN HỆ NHANH ===================== -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <a href="tel:<%= site.hotline %>" class="info-card" data-reveal>
+        <span class="info-ico bg-primary">📞</span>
+        <span class="block text-sm text-text-soft mb-0.5">Hotline</span>
+        <strong class="text-primary text-lg"><%= site.hotlinePretty %></strong>
+      </a>
+      <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="info-card" data-reveal data-delay="80">
+        <span class="info-ico bg-zalo">💬</span>
+        <span class="block text-sm text-text-soft mb-0.5">Zalo tư vấn</span>
+        <strong class="text-zalo text-lg"><%= site.zaloPretty %></strong>
+      </a>
+      <a href="mailto:<%= site.email %>" class="info-card" data-reveal data-delay="160">
+        <span class="info-ico bg-secondary">✉</span>
+        <span class="block text-sm text-text-soft mb-0.5">Email</span>
+        <strong class="text-secondary text-base break-all"><%= site.email %></strong>
+      </a>
+      <a href="<%= site.mapDirection %>" target="_blank" rel="noopener" class="info-card" data-reveal data-delay="240">
+        <span class="info-ico bg-accent-dark">📍</span>
+        <span class="block text-sm text-text-soft mb-0.5">Địa chỉ xưởng</span>
+        <strong class="text-primary text-base"><%= site.address %></strong>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== FORM + THÔNG TIN ===================== -->
+  <section class="py-16 md:py-20 bg-cream-2 grain-pattern">
+    <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Thông tin -->
+      <div data-reveal>
+        <span class="eyebrow">Thông tin liên hệ</span>
+        <h2 class="section-title text-left">Gặp Xướng Hương Tại Đà Nẵng</h2>
+        <p class="text-text-soft leading-relaxed mb-8">
+          Bạn cần báo giá sỉ cho nhà hàng, quán ăn, hay chỉ đơn giản muốn mua vài ký gạo ngon cho gia
+          đình? Hãy để lại thông tin, hoặc liên hệ trực tiếp – chúng tôi phản hồi nhanh trong ít phút.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-4"><span class="list-ico">🏭</span><div><strong class="text-primary block">Xưởng / Kho hàng</strong><span class="text-text-soft text-sm"><%= site.name %><br /><%= site.address %></span></div></li>
+          <li class="flex items-start gap-4"><span class="list-ico">🕗</span><div><strong class="text-primary block">Giờ làm việc</strong><span class="text-text-soft text-sm"><%= site.openHours %></span></div></li>
+          <li class="flex items-start gap-4"><span class="list-ico">🚚</span><div><strong class="text-primary block">Khu vực giao hàng</strong><span class="text-text-soft text-sm">Giao tận nơi toàn thành phố Đà Nẵng và vùng lân cận.</span></div></li>
+        </ul>
+        <a href="<%= site.mapDirection %>" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-cream font-semibold hover:bg-primary-dark transition">📍 Chỉ đường tới xưởng</a>
+      </div>
+
+      <!-- Form -->
+      <div class="bg-white rounded-3xl p-7 md:p-9 border border-border-soft shadow-soft" data-reveal data-delay="120">
+        <h2 class="font-serif text-2xl font-bold text-primary mb-1">Gửi Yêu Cầu Báo Giá</h2>
+        <p class="text-text-soft text-sm mb-6">Điền thông tin bên dưới, Xướng Hương sẽ liên hệ lại ngay.</p>
+        <%- include('partials/quote-form') %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BẢN ĐỒ ===================== -->
+  <section class="bg-white">
+    <div class="container mx-auto pt-16 pb-6">
+      <div class="text-center mb-8" data-reveal>
+        <span class="eyebrow">Bản đồ</span>
+        <h2 class="section-title">Tìm Đường Đến Xưởng Gạo Xướng Hương</h2>
+      </div>
+    </div>
+    <div class="map-wrap" data-reveal>
+      <iframe
+        src="<%= site.mapEmbed %>"
+        width="100%" height="450" style="border:0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Bản đồ Xướng Hương - <%= site.address %>"></iframe>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/floating') %>
+<%- include('partials/scripts') %>

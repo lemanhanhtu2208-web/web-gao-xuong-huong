@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Môi trường
+.env
+
+# Dữ liệu runtime (fallback khi chưa có DB)
+data/contacts.jsonl
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

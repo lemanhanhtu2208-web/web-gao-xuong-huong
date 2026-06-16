@@ -1,0 +1,7 @@
+/* File nguồn để biên dịch Tailwind -> public/css/tailwind.css
+ * Build:  npm run build:css   (hoặc  npm run watch:css  khi phát triển)
+ * Các style tùy biến & hiệu ứng nằm riêng ở public/css/styles.css
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

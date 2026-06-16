@@ -1,0 +1,175 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <!-- ===================== PAGE HERO ===================== -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('/img/kho-gao.jpg')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container mx-auto relative z-10 text-cream text-center py-20 md:py-28">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="/">Trang chủ</a> <span>/</span> <span>Giới thiệu</span>
+      </nav>
+      <h1 class="hero-fade font-serif text-4xl md:text-5xl font-extrabold text-shadow" style="--d:.1s">Giới Thiệu Xưởng Gạo Xướng Hương</h1>
+      <p class="hero-fade mt-4 text-cream/90 max-w-2xl mx-auto text-shadow" style="--d:.25s">Hành trình hơn một thập kỷ gắn bó với hạt gạo Việt – tận tâm, minh bạch và uy tín.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CÂU CHUYỆN ===================== -->
+  <section class="py-16 md:py-24 bg-white overflow-hidden">
+    <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div data-reveal>
+        <span class="eyebrow">Câu chuyện thương hiệu</span>
+        <h2 class="section-title text-left">Hành Trình Của Những Hạt Gạo Sạch Tận Tâm</h2>
+        <p class="text-text-soft leading-relaxed mb-4">
+          Giữa nhịp sống hối hả của thành phố Đà Nẵng, có một xưởng gạo vẫn ngày ngày lặng lẽ giữ trọn
+          cái tâm với hạt gạo Việt – đó là <strong><%= site.name %></strong>. Khởi đầu từ một cơ sở
+          kinh doanh gạo nhỏ với mong muốn giản dị <em>"mang hạt gạo sạch, ngon đến từng mâm cơm"</em>,
+          Xướng Hương đã không ngừng lớn mạnh để trở thành một trong những địa chỉ cung ứng gạo uy tín
+          hàng đầu khu vực miền Trung.
+        </p>
+        <p class="text-text-soft leading-relaxed mb-4">
+          Người sáng lập Xướng Hương hiểu rằng, hạt gạo không chỉ là lương thực – đó là sức khỏe, là
+          bữa cơm sum vầy của mỗi gia đình, là uy tín của mỗi nhà hàng, quán ăn. Vì lẽ đó, ngay từ
+          những ngày đầu, chúng tôi đã chọn cho mình một con đường không dễ dàng: <strong>chỉ cung cấp
+          gạo sạch, có nguồn gốc rõ ràng, chất lượng ổn định và giá cả minh bạch.</strong>
+        </p>
+        <p class="text-text-soft leading-relaxed">
+          Cái tên "Xướng Hương" – nơi hương thơm cất lên – cũng chính là lời cam kết về từng hạt gạo
+          thơm dẻo mà chúng tôi gửi đến khách hàng.
+        </p>
+      </div>
+      <div class="relative" data-reveal data-delay="120">
+        <div class="img-frame">
+          <img src="/img/xuong-gao.jpg" alt="Xưởng gạo Xướng Hương" loading="lazy"
+               class="rounded-3xl shadow-soft w-full object-cover h-[340px] md:h-[460px]" onerror="this.src='/img/placeholder.svg'" />
+        </div>
+        <div class="absolute -top-5 -left-3 md:-left-5 bg-accent text-primary-dark rounded-2xl px-5 py-4 shadow-lg rotate-[-4deg]">
+          <span class="block font-serif text-2xl font-extrabold">Since</span>
+          <span class="text-sm font-semibold">hơn 10 năm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NĂNG LỰC ===================== -->
+  <section class="py-16 md:py-24 bg-cream-2 grain-pattern">
+    <div class="container mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
+        <span class="eyebrow">Năng lực thực sự</span>
+        <h2 class="section-title">Lớn Mạnh Cùng Năng Lực &amp; Sự Tận Tâm</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <% const caps = [
+          { icon:'🏭', title:'Kho bãi quy mô lớn', text:'Hệ thống kho bãi rộng rãi tại 111 Nguyễn Chí Diễu, Đà Nẵng – khô ráo, thoáng mát, kiểm soát chặt chẽ để gạo luôn giữ trọn độ thơm ngon, không ẩm mốc, không mối mọt.' },
+          { icon:'🌾', title:'Liên kết vùng nguyên liệu', text:'Làm việc trực tiếp với nông dân và các vùng trồng lúa trọng điểm, cắt bỏ hoàn toàn khâu trung gian để mang đến mức giá tận gốc tốt nhất mà chất lượng vẹn nguyên.' },
+          { icon:'📦', title:'Cung ứng hàng trăm tấn/tháng', text:'Mỗi tháng, xưởng cung ứng hàng trăm tấn gạo các loại cho nhà hàng, quán cơm, bếp ăn tập thể và hàng nghìn hộ gia đình trên khắp Đà Nẵng.' }
+        ]; %>
+        <% caps.forEach(function(c, i){ %>
+          <div class="card-hover bg-white rounded-2xl p-8 border border-border-soft" data-reveal data-delay="<%= i*110 %>">
+            <div class="w-14 h-14 grid place-items-center rounded-xl bg-accent-soft text-3xl mb-4 icon-pop"><%= c.icon %></div>
+            <h3 class="font-bold text-lg text-primary mb-2"><%= c.title %></h3>
+            <p class="text-text-soft text-sm leading-relaxed"><%= c.text %></p>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TIMELINE HÀNH TRÌNH ===================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto max-w-4xl">
+      <div class="text-center mb-14" data-reveal>
+        <span class="eyebrow">Chặng đường phát triển</span>
+        <h2 class="section-title">Từ Cơ Sở Nhỏ Đến Xưởng Gạo Uy Tín</h2>
+      </div>
+      <div class="timeline">
+        <% const milestones = [
+          { year:'Khởi đầu', title:'Một cửa hàng gạo nhỏ', text:'Bắt đầu với mong muốn giản dị: mang hạt gạo sạch, ngon đến từng mâm cơm gia đình Đà Nẵng.' },
+          { year:'Phát triển', title:'Mở rộng kho bãi', text:'Đầu tư hệ thống kho bãi quy mô lớn tại 111 Nguyễn Chí Diễu, chuẩn hóa quy trình bảo quản.' },
+          { year:'Liên kết', title:'Bắt tay vùng nguyên liệu', text:'Liên kết trực tiếp với nông dân, kiểm soát chất lượng từ gốc, đưa giá về mức tận xưởng.' },
+          { year:'Chứng nhận', title:'Đạt VietGAP & ATVSTP', text:'Hoàn thiện chứng nhận chất lượng, khẳng định cam kết gạo sạch – an toàn cho khách hàng.' },
+          { year:'Hôm nay', title:'Đối tác của 300+ nhà hàng', text:'Cung ứng hàng trăm tấn gạo mỗi tháng cho nhà hàng, quán ăn và hàng nghìn hộ gia đình.' }
+        ]; %>
+        <% milestones.forEach(function(m, i){ %>
+          <div class="timeline-item" data-reveal data-delay="<%= i*80 %>">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="text-accent-dark font-bold text-sm uppercase tracking-wide"><%= m.year %></span>
+              <h3 class="font-bold text-lg text-primary mt-1 mb-1.5"><%= m.title %></h3>
+              <p class="text-text-soft text-sm leading-relaxed"><%= m.text %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAM KẾT & CHỨNG NHẬN ===================== -->
+  <section class="py-16 md:py-24 bg-primary text-cream relative overflow-hidden">
+    <div class="grain-pattern-dark absolute inset-0 opacity-30"></div>
+    <div class="container mx-auto relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div data-reveal>
+        <span class="eyebrow text-accent">Cam kết chất lượng</span>
+        <h2 class="section-title text-cream text-left">Minh Chứng Bằng Chứng Nhận</h2>
+        <p class="text-cream/85 leading-relaxed mb-4">
+          Niềm tin của khách hàng là tài sản quý giá nhất của Xướng Hương. Để xứng đáng với niềm tin
+          ấy, toàn bộ quy trình từ tuyển chọn nguyên liệu, bảo quản đến đóng gói đều tuân thủ nghiêm
+          ngặt các tiêu chuẩn an toàn.
+        </p>
+        <ul class="space-y-4 mt-6">
+          <li class="flex items-start gap-4"><span class="cert-badge">VietGAP</span><span class="text-cream/90">Chứng nhận thực hành sản xuất nông nghiệp tốt – kiểm soát chất lượng theo tiêu chuẩn.</span></li>
+          <li class="flex items-start gap-4"><span class="cert-badge">ATVSTP</span><span class="text-cream/90">Giấy chứng nhận cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm.</span></li>
+        </ul>
+        <p class="text-cream/85 leading-relaxed mt-6">
+          Đây là sự đảm bảo chắc chắn rằng từng hạt gạo đến tay bạn đều sạch, an toàn và đáng tin cậy.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-5" data-reveal data-delay="120">
+        <div class="cert-card"><img src="/img/chung-nhan-vietgap.jpg" alt="Chứng nhận VietGAP" loading="lazy" onerror="this.src='/img/placeholder.svg'" /><span>Chứng nhận VietGAP</span></div>
+        <div class="cert-card"><img src="/img/chung-nhan-atvstp.jpg" alt="Chứng nhận An toàn thực phẩm" loading="lazy" onerror="this.src='/img/placeholder.svg'" /><span>Chứng nhận ATVSTP</span></div>
+        <div class="cert-card"><img src="/img/kho-1.jpg" alt="Kho gạo thực tế" loading="lazy" onerror="this.src='/img/placeholder.svg'" /><span>Kho bãi thực tế</span></div>
+        <div class="cert-card"><img src="/img/kho-2.jpg" alt="Đóng gói gạo" loading="lazy" onerror="this.src='/img/placeholder.svg'" /><span>Quy trình đóng gói</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ĐỒNG HÀNH CỘNG ĐỒNG ===================== -->
+  <section class="py-16 md:py-20 bg-cream-2">
+    <div class="container mx-auto max-w-3xl text-center" data-reveal>
+      <div class="text-5xl mb-4">🤝</div>
+      <h2 class="section-title">Đồng Hành Cùng Cộng Đồng</h2>
+      <p class="text-text-soft leading-relaxed">
+        Không chỉ kinh doanh, Xướng Hương còn mong muốn lan tỏa giá trị tốt đẹp. Chúng tôi luôn sẵn
+        lòng đồng hành cùng các chương trình thiện nguyện, cung cấp gạo đóng bao chất lượng cho hoạt
+        động từ thiện với mức giá ưu đãi nhất – bởi chúng tôi tin rằng, một hạt gạo sẻ chia cũng là
+        một hạt gạo ý nghĩa.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== LỜI CAM KẾT + CTA ===================== -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto max-w-4xl text-center" data-reveal>
+      <span class="eyebrow">Lời cam kết của chúng tôi</span>
+      <h2 class="section-title">Gạo Sạch Đúng Chất Lượng – Giá Tận Gốc Đúng Giá Trị</h2>
+      <p class="text-text-soft leading-relaxed mb-3">
+        Đến với Xướng Hương, bạn không chỉ mua gạo – bạn chọn một đối tác tin cậy, tận tâm và minh bạch.
+        Chúng tôi cam kết: <strong>gạo sạch đúng chất lượng, giá tận gốc đúng giá trị, giao hàng đúng hẹn
+        tận nơi.</strong>
+      </p>
+      <p class="text-text-soft leading-relaxed mb-8">
+        Dù bạn là chủ một nhà hàng lớn cần nguồn cung ổn định, hay một người nội trợ chỉ cần vài ký gạo
+        ngon cho gia đình – Xướng Hương đều trân trọng phục vụ bạn như nhau.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/lien-he" class="btn-shine px-8 py-4 rounded-full bg-primary text-cream font-bold shadow hover:-translate-y-0.5 transition-transform">📞 Nhận báo giá ngay</a>
+        <a href="/san-pham" class="px-8 py-4 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-cream transition">Xem sản phẩm</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/floating') %>
+<%- include('partials/scripts') %>

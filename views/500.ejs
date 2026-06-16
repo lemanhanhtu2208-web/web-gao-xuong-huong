@@ -1,0 +1,19 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main class="min-h-[60vh] grid place-items-center py-20 grain-pattern">
+  <div class="container mx-auto text-center max-w-lg">
+    <div class="text-7xl mb-4">🌾</div>
+    <h1 class="font-serif text-5xl font-extrabold text-primary mb-3">500</h1>
+    <p class="text-xl text-text-main mb-2">Máy chủ đang gặp sự cố.</p>
+    <p class="text-text-soft mb-8">Xin lỗi vì sự bất tiện này. Vui lòng thử lại sau ít phút, hoặc gọi Hotline để được hỗ trợ ngay.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="/" class="px-7 py-3.5 rounded-full bg-primary text-cream font-bold hover:bg-primary-dark transition">← Về trang chủ</a>
+      <a href="tel:<%= site.hotline %>" class="px-7 py-3.5 rounded-full bg-accent text-primary-dark font-bold hover:brightness-105 transition">📞 <%= site.hotlinePretty %></a>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/floating') %>
+<%- include('partials/scripts') %>

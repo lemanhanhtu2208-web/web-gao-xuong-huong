@@ -1,0 +1,33 @@
+{
+  "name": "web-gao-xuong-huong",
+  "version": "1.0.0",
+  "description": "Website xưởng gạo Xướng Hương Đà Nẵng - giới thiệu năng lực B2B & trưng bày sản phẩm B2C",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:css": "tailwindcss -i ./src/styles/input.css -o ./public/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/styles/input.css -o ./public/css/tailwind.css --watch"
+  },
+  "keywords": [
+    "gao",
+    "rice",
+    "da-nang",
+    "xuong-huong",
+    "express",
+    "ejs"
+  ],
+  "author": "Công ty TNHH MTV Xướng Hương",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
