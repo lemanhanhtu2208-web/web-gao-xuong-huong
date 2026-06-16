@@ -110,6 +110,20 @@ web-gao-xuong-huong/
 | Text | `#2E2117` |
 | Zalo/Call | `#2FAE60` |
 
+## 📧 Gửi email thông báo khi có khách để lại form
+Mỗi khi khách gửi form báo giá, hệ thống tự gửi email tới `gaodanang@gmail.com`.
+- **Chưa cấu hình SMTP** → chạy chế độ *mô phỏng*: in nội dung email ra console (web vẫn chạy bình thường).
+- **Gửi email thật**: điền `SMTP_*` trong `.env`. Với Gmail, tạo **Mật khẩu ứng dụng** 16 ký tự
+  tại https://myaccount.google.com/apppasswords rồi điền vào `SMTP_USER` / `SMTP_PASS`.
+
+Xem chi tiết hướng dẫn trong `.env.example` và `src/mailer.js`.
+
+## 🛍️ Trang chi tiết sản phẩm
+Mỗi dòng gạo (`/san-pham/:slug`) có: **slider ảnh** (mũi tên, thumbnail, vuốt trên mobile,
+tự chạy), **bảng thông số đặc tính** (thanh đánh giá 0–5), **mô tả chi tiết chuẩn SEO**,
+**các giống gạo tiêu biểu** (ST25, Đài Thơm 8, gạo 504, nếp cái hoa vàng, gạo lứt huyết rồng...),
+quy cách đóng gói và nút **Báo giá qua Zalo / Gọi ngay**.
+
 ## ✨ Hiệu ứng chuyển động
 - Hero ảnh nền hiệu ứng **Ken Burns** (zoom chậm), chữ xuất hiện so le (stagger).
 - **Reveal khi cuộn** (fade-up) cho mọi khối nội dung qua IntersectionObserver.

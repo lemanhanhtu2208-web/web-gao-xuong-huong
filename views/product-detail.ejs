@@ -1,6 +1,14 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
 
+<%
+  // Dữ liệu an toàn (phòng khi danh mục đến từ DB thiếu trường hiển thị)
+  var gallery = (category.gallery && category.gallery.length) ? category.gallery : [category.image];
+  var ratings = category.ratings || [];
+  var varieties = category.varieties || [];
+  var longDesc = category.longDesc || [category.intro];
+%>
+
 <main>
   <!-- ===================== BREADCRUMB ===================== -->
   <div class="bg-cream-2 border-b border-border-soft">
@@ -16,63 +24,88 @@
   <!-- ===================== CHI TIẾT ===================== -->
   <section class="py-12 md:py-16 bg-white">
     <div class="container mx-auto grid lg:grid-cols-2 gap-12">
-      <!-- Ảnh -->
+
+      <!-- ===== SLIDER ẢNH ===== -->
       <div data-reveal>
-        <div class="img-frame">
-          <img src="<%= category.image %>" alt="<%= category.name %>" loading="lazy"
-               class="w-full rounded-3xl shadow-soft object-cover h-[320px] md:h-[460px]" onerror="this.src='/img/placeholder.svg'" />
-        </div>
-        <div class="grid grid-cols-3 gap-3 mt-4">
-          <% category.packaging.slice(0,3).forEach(function(p){ %>
-            <div class="bg-cream rounded-xl border border-border-soft py-3 text-center text-sm font-semibold text-primary">📦 <%= p %></div>
-          <% }); %>
+        <div class="detail-slider img-frame" data-slider>
+          <div class="slider-viewport rounded-3xl shadow-soft">
+            <div class="slider-track" data-track>
+              <% gallery.forEach(function(src, i){ %>
+                <div class="slider-slide">
+                  <img src="<%= src %>" alt="<%= category.name %> - ảnh <%= i+1 %>" loading="<%= i===0 ? 'eager' : 'lazy' %>"
+                       class="w-full h-[320px] md:h-[460px] object-cover" onerror="this.src='/img/placeholder.svg'" />
+                </div>
+              <% }); %>
+            </div>
+
+            <% if (gallery.length > 1) { %>
+              <button type="button" class="slider-btn slider-prev" data-prev aria-label="Ảnh trước">‹</button>
+              <button type="button" class="slider-btn slider-next" data-next aria-label="Ảnh sau">›</button>
+              <div class="slider-dots" data-dots>
+                <% gallery.forEach(function(src, i){ %>
+                  <button type="button" class="slider-dot <%= i===0 ? 'active' : '' %>" data-go="<%= i %>" aria-label="Tới ảnh <%= i+1 %>"></button>
+                <% }); %>
+              </div>
+            <% } %>
+
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-white/90 text-primary text-xs font-semibold backdrop-blur"><%= category.icon %> <%= category.shortName %></span>
+          </div>
+
+          <% if (gallery.length > 1) { %>
+            <div class="slider-thumbs" data-thumbs>
+              <% gallery.forEach(function(src, i){ %>
+                <button type="button" class="slider-thumb <%= i===0 ? 'active' : '' %>" data-go="<%= i %>">
+                  <img src="<%= src %>" alt="thumbnail <%= i+1 %>" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
+                </button>
+              <% }); %>
+            </div>
+          <% } %>
         </div>
       </div>
 
-      <!-- Thông tin -->
+      <!-- ===== THÔNG TIN ===== -->
       <div data-reveal data-delay="120">
         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-soft text-primary-dark text-sm font-semibold mb-3"><%= category.icon %> <%= category.shortName %></span>
         <h1 class="font-serif text-3xl md:text-4xl font-extrabold text-primary mb-3"><%= category.name %></h1>
         <p class="text-lg text-secondary font-medium mb-4"><%= category.tagline %></p>
         <p class="text-text-soft leading-relaxed mb-6"><%= category.intro %></p>
 
-        <!-- Đặc tính -->
-        <div class="space-y-3 mb-7">
+        <!-- Bảng thông số đặc tính (thanh đánh giá) -->
+        <% if (ratings.length) { %>
+          <div class="bg-cream rounded-2xl p-5 mb-7 border border-border-soft">
+            <h2 class="font-bold text-primary mb-4 flex items-center gap-2">📊 Thông số đặc tính</h2>
+            <div class="space-y-3.5">
+              <% ratings.forEach(function(r){ %>
+                <div class="flex items-center gap-3">
+                  <span class="w-36 shrink-0 text-sm text-text-soft"><%= r.label %></span>
+                  <div class="flex-1 h-2.5 rounded-full bg-border-soft/60 overflow-hidden">
+                    <span class="rating-bar block h-full rounded-full bg-accent" style="--w: <%= (r.score/5*100) %>%"></span>
+                  </div>
+                  <span class="w-8 text-right text-sm font-semibold text-primary"><%= r.score %>/5</span>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+
+        <!-- Đặc tính nhanh -->
+        <div class="grid sm:grid-cols-2 gap-3 mb-7">
           <% category.features.forEach(function(f){ %>
-            <div class="flex items-start gap-3 bg-cream rounded-xl p-4 border border-border-soft">
-              <span class="text-accent text-xl mt-0.5">●</span>
-              <span><strong class="text-primary"><%= f.label %>:</strong> <span class="text-text-soft"><%= f.value %></span></span>
+            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3.5 border border-border-soft">
+              <span class="text-accent text-lg mt-0.5">●</span>
+              <span class="text-sm"><strong class="text-primary"><%= f.label %>:</strong> <span class="text-text-soft"><%= f.value %></span></span>
             </div>
           <% }); %>
         </div>
 
-        <!-- Cách nấu -->
-        <div class="bg-accent-soft/60 rounded-xl p-5 mb-7 border border-accent/30">
-          <h2 class="font-bold text-primary mb-1.5 flex items-center gap-2">🍳 Cách nấu ngon</h2>
-          <p class="text-text-soft text-sm leading-relaxed"><%= category.cooking %></p>
-        </div>
-
-        <!-- Quy cách + đối tượng -->
-        <div class="grid sm:grid-cols-2 gap-4 mb-8">
-          <div class="bg-white rounded-xl p-4 border border-border-soft">
-            <h3 class="text-sm font-bold text-primary mb-2">📦 Quy cách đóng gói</h3>
-            <ul class="text-sm text-text-soft space-y-1">
-              <% category.packaging.forEach(function(p){ %><li>• <%= p %></li><% }); %>
-            </ul>
-          </div>
-          <div class="bg-white rounded-xl p-4 border border-border-soft">
-            <h3 class="text-sm font-bold text-primary mb-2">👥 Phù hợp với</h3>
-            <p class="text-sm text-text-soft leading-relaxed"><%= category.suitableFor %></p>
-          </div>
-        </div>
-
         <!-- Giá / CTA -->
-        <div class="bg-primary text-cream rounded-2xl p-6">
+        <div class="bg-primary text-cream rounded-2xl p-6 mb-2">
           <p class="text-cream/85 text-sm mb-1">Chính sách giá</p>
-          <p class="font-serif text-2xl font-bold text-accent mb-4">Liên hệ nhận báo giá tận gốc</p>
+          <p class="font-serif text-2xl font-bold text-accent mb-1">Liên hệ nhận báo giá sỉ tận gốc</p>
+          <p class="text-cream/75 text-sm mb-4">Báo giá theo số lượng &amp; quy cách – nhanh trong ít phút.</p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="tel:<%= site.hotline %>" class="btn-shine flex-1 text-center px-6 py-3.5 rounded-full bg-accent text-primary-dark font-bold hover:-translate-y-0.5 transition-transform">📞 <%= site.hotlinePretty %></a>
-            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="flex-1 text-center px-6 py-3.5 rounded-full bg-zalo text-white font-bold hover:-translate-y-0.5 transition-transform">💬 Chat Zalo</a>
+            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn-shine flex-1 text-center px-6 py-3.5 rounded-full bg-zalo text-white font-bold hover:-translate-y-0.5 transition-transform">💬 Báo giá qua Zalo<br class="sm:hidden" /> <span class="font-semibold"><%= site.zaloPretty %></span></a>
+            <a href="tel:<%= site.hotline %>" class="flex-1 text-center px-6 py-3.5 rounded-full bg-accent text-primary-dark font-bold hover:-translate-y-0.5 transition-transform">📞 Gọi ngay<br class="sm:hidden" /> <span class="font-semibold"><%= site.hotlinePretty %></span></a>
           </div>
           <a href="/lien-he?sp=<%= category.slug %>" class="block text-center mt-3 text-cream/80 text-sm underline-offset-2 hover:text-accent hover:underline">Hoặc gửi yêu cầu báo giá qua form →</a>
         </div>
@@ -80,8 +113,76 @@
     </div>
   </section>
 
+  <!-- ===================== MÔ TẢ CHI TIẾT + GIỐNG GẠO + NẤU/ĐÓNG GÓI ===================== -->
+  <section class="py-12 md:py-16 bg-cream-2 grain-pattern">
+    <div class="container mx-auto grid lg:grid-cols-3 gap-8 items-start">
+
+      <!-- Cột trái: mô tả + giống gạo -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Mô tả -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-border-soft" data-reveal>
+          <h2 class="section-title text-left mb-5">Mô Tả Chi Tiết</h2>
+          <div class="space-y-4">
+            <% longDesc.forEach(function(p){ %>
+              <p class="text-text-soft leading-relaxed"><%= p %></p>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- Giống gạo tiêu biểu -->
+        <% if (varieties.length) { %>
+          <div class="bg-white rounded-2xl p-6 md:p-8 border border-border-soft" data-reveal data-delay="80">
+            <h2 class="section-title text-left mb-5">Các Giống Gạo Tiêu Biểu</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <% varieties.forEach(function(v, i){ %>
+                <div class="flex gap-3 p-4 rounded-xl bg-cream border border-border-soft card-hover">
+                  <span class="shrink-0 w-9 h-9 grid place-items-center rounded-full bg-accent text-primary-dark font-bold"><%= i+1 %></span>
+                  <div>
+                    <h3 class="font-bold text-primary mb-1"><%= v.name %></h3>
+                    <p class="text-sm text-text-soft leading-relaxed"><%= v.note %></p>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Cột phải: nấu + đóng gói + đối tượng -->
+      <aside class="space-y-6 lg:sticky lg:top-24" data-reveal data-delay="160">
+        <div class="bg-accent-soft/70 rounded-2xl p-6 border border-accent/30">
+          <h3 class="font-bold text-primary mb-2 flex items-center gap-2">🍳 Cách nấu ngon</h3>
+          <p class="text-text-soft text-sm leading-relaxed"><%= category.cooking %></p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-border-soft">
+          <h3 class="font-bold text-primary mb-3 flex items-center gap-2">📦 Quy cách đóng gói</h3>
+          <div class="flex flex-wrap gap-2">
+            <% category.packaging.forEach(function(p){ %>
+              <span class="px-3 py-1.5 rounded-full bg-cream border border-border-soft text-sm font-semibold text-primary"><%= p %></span>
+            <% }); %>
+          </div>
+          <p class="text-xs text-text-soft mt-3">Túi nhỏ 5kg cho gia đình · Bao thương mại 10–50kg cho khách sỉ.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-border-soft">
+          <h3 class="font-bold text-primary mb-2 flex items-center gap-2">👥 Phù hợp với</h3>
+          <p class="text-sm text-text-soft leading-relaxed"><%= category.suitableFor %></p>
+        </div>
+
+        <div class="bg-primary text-cream rounded-2xl p-6 text-center">
+          <p class="font-serif text-lg font-bold text-accent mb-3">Cần báo giá ngay?</p>
+          <div class="flex flex-col gap-3">
+            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="px-5 py-3 rounded-full bg-zalo text-white font-bold hover:-translate-y-0.5 transition-transform">💬 Zalo <%= site.zaloPretty %></a>
+            <a href="tel:<%= site.hotline %>" class="px-5 py-3 rounded-full bg-accent text-primary-dark font-bold hover:-translate-y-0.5 transition-transform">📞 <%= site.hotlinePretty %></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
   <!-- ===================== SẢN PHẨM LIÊN QUAN ===================== -->
-  <section class="py-16 md:py-20 grain-pattern">
+  <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto">
       <div class="text-center mb-12" data-reveal>
         <span class="eyebrow">Khám phá thêm</span>

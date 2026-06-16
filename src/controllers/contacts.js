@@ -5,6 +5,7 @@
 'use strict';
 
 const db = require('../db');
+const mailer = require('../mailer');
 
 const CUSTOMER_TYPES = ['le', 'si', 'nha_hang', 'tu_thien', 'khac'];
 
@@ -58,6 +59,12 @@ async function createContact(req, res) {
 
   try {
     const result = await db.saveContact(data);
+
+    // Gửi email thông báo (không chặn phản hồi, không làm hỏng request nếu lỗi)
+    mailer
+      .sendContactNotification(data)
+      .catch((e) => console.error('Mailer error:', e && e.message));
+
     return res.status(201).json({
       ok: true,
       storage: result.storage,

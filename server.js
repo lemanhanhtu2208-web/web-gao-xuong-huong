@@ -7,11 +7,13 @@ require('dotenv').config();
 
 const app = require('./src/app');
 const { initDb } = require('./src/db');
+const { initMailer } = require('./src/mailer');
 
 const PORT = process.env.PORT || 3000;
 
 (async function start() {
   await initDb(); // thử kết nối MySQL (không chặn nếu thất bại)
+  initMailer(); // khởi tạo gửi email (SMTP hoặc chế độ mô phỏng)
 
   app.listen(PORT, () => {
     console.log('');

@@ -468,6 +468,89 @@ body {
 .form-msg-err { background: rgba(224, 86, 75, 0.12); color: #b23b32; }
 
 /* ---------------------------------------------------------------------
+ *  SLIDER ẢNH (trang chi tiết sản phẩm)
+ * ------------------------------------------------------------------- */
+.slider-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+.slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.slider-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+.slider-slide img { display: block; }
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: rgba(74, 47, 26, 0.55);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 5;
+}
+.slider-btn:hover { background: var(--primary); transform: translateY(-50%) scale(1.08); }
+.slider-prev { left: 12px; }
+.slider-next { right: 12px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 5;
+}
+.slider-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.slider-dot.active { width: 26px; background: var(--accent); }
+
+.slider-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+.slider-thumb {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  line-height: 0;
+}
+.slider-thumb img { width: 100%; height: 72px; object-fit: cover; }
+.slider-thumb:hover { transform: translateY(-2px); }
+.slider-thumb.active { border-color: var(--accent); }
+
+/* Thanh đánh giá đặc tính (animate khi reveal) */
+.rating-bar {
+  width: 0;
+  transition: width 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.15s;
+}
+[data-reveal].is-visible .rating-bar { width: var(--w, 0%); }
+
+/* ---------------------------------------------------------------------
  *  TÔN TRỌNG NGƯỜI DÙNG GIẢM CHUYỂN ĐỘNG
  * ------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {

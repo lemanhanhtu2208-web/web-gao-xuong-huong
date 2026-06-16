@@ -25,7 +25,8 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-rate-limit": "^7.4.0",
-    "mysql2": "^3.11.0"
+    "mysql2": "^3.11.0",
+    "nodemailer": "^6.9.14"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
