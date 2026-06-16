@@ -1,32 +1,35 @@
   <!-- ===================== TOP BAR ===================== -->
-  <div class="topbar hidden md:block text-text-soft text-xs border-b border-[color:var(--glass-line-soft)]">
-    <div class="container mx-auto flex items-center justify-between py-2.5 tracking-wide">
+  <div class="topbar hidden md:block text-[0.72rem] tracking-[0.14em] uppercase">
+    <div class="container mx-auto flex items-center justify-between py-2.5">
       <p class="flex items-center gap-2">
-        <span aria-hidden="true">📍</span> <%= site.address %>
-        <span class="mx-2 opacity-30">·</span>
-        <span aria-hidden="true">🕗</span> Mở cửa <%= site.openHours %>
+        <%- include('icon', { name: 'pin', cls: 'ico', sw: 1.4 }) %>
+        <span><%= site.address %></span>
+        <span class="mx-3 opacity-30">·</span>
+        <span>Mở cửa <%= site.openHours %></span>
       </p>
       <p class="flex items-center gap-6">
-        <a href="mailto:<%= site.email %>" class="hover:text-accent-dark transition-colors"><%= site.email %></a>
-        <a href="tel:<%= site.hotline %>" class="font-medium text-primary-dark hover:text-accent-dark transition-colors">Hotline <%= site.hotlinePretty %></a>
+        <a href="mailto:<%= site.email %>" class="hover:text-gold transition-colors"><%= site.email %></a>
+        <a href="tel:<%= site.hotline %>" class="text-rice hover:text-gold transition-colors">Hotline <%= site.hotlinePretty %></a>
       </p>
     </div>
   </div>
 
   <!-- ===================== HEADER ===================== -->
   <header id="site-header" class="sticky top-0 z-50">
-    <div class="container mx-auto flex items-center justify-between py-5">
+    <div class="container mx-auto flex items-center justify-between py-6">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 group">
-        <span class="grid place-items-center w-11 h-11 rounded-full border border-[color:var(--glass-line-soft)] bg-white/40 text-accent-dark text-xl transition-transform duration-500 group-hover:rotate-12">🌾</span>
-        <span class="leading-tight">
-          <span class="block font-display font-semibold text-2xl text-primary-dark tracking-tightest">Xướng Hương</span>
-          <span class="block text-[10px] tracking-[0.2em] text-text-soft uppercase"><%= site.slogan %></span>
+      <a href="/" class="flex items-center gap-3.5 group">
+        <span class="grid place-items-center w-11 h-11 rounded-full border border-[color:var(--glass-line)] text-gold transition-transform duration-500 group-hover:rotate-[8deg]">
+          <%- include('icon', { name: 'leaf', cls: 'ico', sw: 1.4 }) %>
+        </span>
+        <span class="leading-none">
+          <span class="brand-mark block text-2xl">Xướng Hương</span>
+          <span class="block text-[9px] tracking-[0.32em] uppercase mt-1.5 muted"><%= site.slogan %></span>
         </span>
       </a>
 
       <!-- Desktop menu -->
-      <nav class="hidden lg:flex items-center gap-1 text-[0.95rem]">
+      <nav class="hidden lg:flex items-center gap-9">
         <% const nav = [
           { href: '/', label: 'Trang chủ', key: 'home' },
           { href: '/gioi-thieu', label: 'Giới thiệu', key: 'about' },
@@ -34,8 +37,7 @@
           { href: '/lien-he', label: 'Liên hệ', key: 'contact' }
         ]; %>
         <% nav.forEach(function(item){ %>
-          <a href="<%= item.href %>"
-             class="relative px-4 py-2 transition-colors duration-200 nav-link <%= page === item.key ? 'text-primary-dark font-medium' : 'text-text-main hover:text-primary-dark' %>">
+          <a href="<%= item.href %>" class="nav-link <%= page === item.key ? 'active' : '' %>">
             <%= item.label %>
             <span class="nav-underline <%= page === item.key ? 'active' : '' %>"></span>
           </a>
@@ -44,26 +46,26 @@
 
       <!-- Header CTA -->
       <div class="hidden md:flex items-center gap-3">
-        <a href="tel:<%= site.hotline %>" class="btn btn-ghost !py-2.5 !px-5 text-sm">📞 <%= site.hotlinePretty %></a>
-        <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo !py-2.5 !px-5 text-sm">💬 Zalo</a>
+        <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-ghost !py-2.5 !px-6 text-[0.72rem]">Tư vấn Zalo</a>
+        <a href="/lien-he" class="btn btn-gold !py-2.5 !px-6 text-[0.72rem]">Nhận báo giá</a>
       </div>
 
       <!-- Hamburger -->
-      <button id="menu-btn" aria-label="Mở menu" aria-expanded="false" class="lg:hidden grid place-items-center w-11 h-11 rounded-full border border-[color:var(--glass-line-soft)] bg-white/40 text-primary-dark">
-        <span id="menu-icon" class="block w-5 h-0.5 bg-primary-dark relative transition-all before:content-[''] before:absolute before:w-5 before:h-0.5 before:bg-primary-dark before:-top-[7px] before:transition-all after:content-[''] after:absolute after:w-5 after:h-0.5 after:bg-primary-dark after:top-[7px] after:transition-all"></span>
+      <button id="menu-btn" aria-label="Mở menu" aria-expanded="false" class="lg:hidden grid place-items-center w-11 h-11 rounded-full border border-[color:var(--glass-line)]">
+        <span id="menu-icon" class="block w-5 h-px relative transition-all before:content-[''] before:absolute before:w-5 before:h-px before:-top-[7px] before:transition-all after:content-[''] after:absolute after:w-5 after:h-px after:top-[7px] after:transition-all"></span>
       </button>
     </div>
 
     <!-- Mobile drawer -->
     <nav id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden glass-strong !rounded-none transition-all duration-300 ease-in-out">
-      <div class="container mx-auto flex flex-col py-2">
-        <a href="/" class="py-4 border-b border-[color:var(--glass-line-soft)] <%= page==='home'?'text-primary-dark font-medium':'' %>">Trang chủ</a>
-        <a href="/gioi-thieu" class="py-4 border-b border-[color:var(--glass-line-soft)] <%= page==='about'?'text-primary-dark font-medium':'' %>">Giới thiệu</a>
-        <a href="/san-pham" class="py-4 border-b border-[color:var(--glass-line-soft)] <%= page==='products'?'text-primary-dark font-medium':'' %>">Sản phẩm</a>
-        <a href="/lien-he" class="py-4 <%= page==='contact'?'text-primary-dark font-medium':'' %>">Liên hệ</a>
-        <div class="flex gap-3 py-4">
-          <a href="tel:<%= site.hotline %>" class="btn btn-primary flex-1">📞 Gọi</a>
-          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo flex-1">💬 Zalo</a>
+      <div class="container mx-auto flex flex-col py-3">
+        <a href="/" class="nav-link !text-sm py-4 border-b border-[color:var(--glass-line-soft)] <%= page==='home'?'active':'' %>">Trang chủ</a>
+        <a href="/gioi-thieu" class="nav-link !text-sm py-4 border-b border-[color:var(--glass-line-soft)] <%= page==='about'?'active':'' %>">Giới thiệu</a>
+        <a href="/san-pham" class="nav-link !text-sm py-4 border-b border-[color:var(--glass-line-soft)] <%= page==='products'?'active':'' %>">Sản phẩm</a>
+        <a href="/lien-he" class="nav-link !text-sm py-4 <%= page==='contact'?'active':'' %>">Liên hệ</a>
+        <div class="flex gap-3 py-5">
+          <a href="tel:<%= site.hotline %>" class="btn btn-ghost flex-1">Gọi ngay</a>
+          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-gold flex-1">Zalo</a>
         </div>
       </div>
     </nav>

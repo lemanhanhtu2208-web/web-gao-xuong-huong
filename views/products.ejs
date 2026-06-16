@@ -3,24 +3,24 @@
 
 <main>
   <!-- ===================== PAGE HERO ===================== -->
-  <section class="hero pt-20 pb-12 md:pt-28 md:pb-16">
+  <section class="hero pt-28 pb-16 md:pt-36 md:pb-20">
     <div class="container mx-auto relative z-10 text-center">
-      <nav class="breadcrumb centered mb-6 !text-text-soft" aria-label="breadcrumb">
-        <a href="/" class="hover:text-accent-dark">Trang chủ</a> <span>/</span> <span>Sản phẩm</span>
+      <nav class="breadcrumb centered mb-8" aria-label="breadcrumb">
+        <a href="/">Trang chủ</a> <span>/</span> <span>Sản phẩm</span>
       </nav>
       <span class="hero-fade eyebrow centered" style="--d:.05s">Danh mục</span>
-      <h1 class="hero-fade display !text-[clamp(2.6rem,6vw,4.5rem)]" style="--d:.12s">Năm dòng gạo chủ lực</h1>
-      <p class="hero-fade lead measure mx-auto mt-6" style="--d:.25s">Từ bữa cơm gia đình đến bếp ăn nhà hàng — luôn có lựa chọn phù hợp với mức giá tận gốc.</p>
+      <h1 class="hero-fade display !text-[clamp(2.8rem,6.5vw,5.5rem)]" style="--d:.12s">Năm dòng gạo chủ lực</h1>
+      <p class="hero-fade lead measure mx-auto mt-7" style="--d:.25s">Từ bữa cơm gia đình đến bếp ăn nhà hàng — luôn có lựa chọn phù hợp với mức giá tận gốc.</p>
     </div>
   </section>
 
   <!-- ===================== 3 CAM KẾT NHANH ===================== -->
-  <section class="pb-4">
+  <section class="pb-6">
     <div class="container mx-auto">
-      <div class="glass-strong grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[color:var(--glass-line-soft)] overflow-hidden">
-        <div class="flex items-center gap-4 p-7" data-reveal><span class="icon-line">💰</span><p class="text-text-soft font-light text-sm">Giá tận xưởng,<br /><strong>không qua trung gian</strong></p></div>
-        <div class="flex items-center gap-4 p-7" data-reveal data-delay="100"><span class="icon-line">📦</span><p class="text-text-soft font-light text-sm">Đóng gói linh hoạt<br /><strong>5 · 10 · 25 · 50kg</strong></p></div>
-        <div class="flex items-center gap-4 p-7" data-reveal data-delay="200"><span class="icon-line">🚚</span><p class="text-text-soft font-light text-sm">Giao hàng tận nơi<br /><strong>khắp Đà Nẵng</strong></p></div>
+      <div class="glass grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[color:var(--glass-line-soft)] overflow-hidden">
+        <div class="flex items-center gap-5 p-8" data-reveal><span class="icon-frame"><%- include('partials/icon', { name: 'scale', cls: 'ico', sw: 1.4 }) %></span><p class="font-light text-sm"><span class="muted">Giá tận xưởng</span><br /><strong>không qua trung gian</strong></p></div>
+        <div class="flex items-center gap-5 p-8" data-reveal data-delay="100"><span class="icon-frame"><%- include('partials/icon', { name: 'warehouse', cls: 'ico', sw: 1.4 }) %></span><p class="font-light text-sm"><span class="muted">Đóng gói linh hoạt</span><br /><strong>5 · 10 · 25 · 50kg</strong></p></div>
+        <div class="flex items-center gap-5 p-8" data-reveal data-delay="200"><span class="icon-frame"><%- include('partials/icon', { name: 'truck', cls: 'ico', sw: 1.4 }) %></span><p class="font-light text-sm"><span class="muted">Giao hàng tận nơi</span><br /><strong>khắp Đà Nẵng</strong></p></div>
       </div>
     </div>
   </section>
@@ -33,32 +33,32 @@
           <article class="glass glass-card overflow-hidden flex flex-col" data-reveal data-delay="<%= (i%3)*100 %>">
             <a href="/san-pham/<%= cat.slug %>" class="media media-zoom block h-60 !rounded-none">
               <img src="<%= cat.image %>" alt="<%= cat.name %>" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
-              <span class="absolute top-4 left-4 px-3 py-1 rounded-full glass-strong text-primary-dark text-xs font-medium"><%= cat.icon %> <%= cat.shortName %></span>
+              <span class="absolute top-5 left-5 z-10 text-[0.68rem] uppercase tracking-[0.16em] text-gold-light"><%= cat.shortName %></span>
             </a>
-            <div class="p-7 flex flex-col flex-1">
-              <h2 class="text-2xl text-primary-dark mb-2"><a href="/san-pham/<%= cat.slug %>" class="hover:text-accent-dark transition"><%= cat.name %></a></h2>
-              <p class="text-text-soft font-light text-[0.95rem] mb-4 flex-1 leading-relaxed"><%= cat.tagline %></p>
-              <div class="flex flex-wrap gap-2 mb-5">
+            <div class="p-8 flex flex-col flex-1">
+              <h2 class="text-2xl mb-3"><a href="/san-pham/<%= cat.slug %>" class="hover:text-gold-light transition"><%= cat.name %></a></h2>
+              <p class="muted font-light text-[0.95rem] mb-5 flex-1 leading-relaxed"><%= cat.tagline %></p>
+              <div class="flex flex-wrap gap-2 mb-6">
                 <% cat.highlights.forEach(function(h){ %>
-                  <span class="px-3 py-1 rounded-full border border-[color:var(--glass-line-soft)] text-primary-dark text-xs"><%= h %></span>
+                  <span class="px-3 py-1 rounded-full border border-[color:var(--glass-line-soft)] text-[0.7rem] tracking-wide muted"><%= h %></span>
                 <% }); %>
               </div>
-              <p class="text-xs text-text-soft mb-5 tracking-wide"><span class="uppercase">Quy cách</span> · <%= cat.packaging.join(' · ') %></p>
-              <div class="mt-auto flex gap-3">
-                <a href="/san-pham/<%= cat.slug %>" class="btn btn-ghost flex-1 !py-3 text-sm">Chi tiết</a>
-                <a href="/lien-he?sp=<%= cat.slug %>" class="btn btn-accent flex-1 !py-3 text-sm">Báo giá</a>
+              <p class="text-[0.7rem] uppercase tracking-[0.12em] muted mb-6"><%= cat.packaging.join(' · ') %></p>
+              <div class="mt-auto flex items-center justify-between gap-4">
+                <a href="/san-pham/<%= cat.slug %>" class="link-arrow !text-[0.7rem]">Chi tiết <%- include('partials/icon', { name: 'arrow', cls: 'ico', sw: 1.6 }) %></a>
+                <a href="/lien-he?sp=<%= cat.slug %>" class="btn btn-ghost !py-2.5 !px-5 text-[0.68rem]">Báo giá</a>
               </div>
             </div>
           </article>
         <% }); %>
       </div>
 
-      <div class="glass mt-12 p-8 md:p-10 text-center max-w-3xl mx-auto" data-reveal>
-        <p class="text-text-soft font-light leading-relaxed">
-          💡 Tất cả sản phẩm <strong>không niêm yết giá công khai</strong>.
+      <div class="glass mt-12 p-10 md:p-12 text-center max-w-3xl mx-auto" data-reveal>
+        <p class="muted font-light leading-relaxed">
+          Tất cả sản phẩm <strong>không niêm yết giá công khai</strong>.
           Vui lòng bấm <strong>"Báo giá"</strong>, gọi
-          <a href="tel:<%= site.hotline %>" class="text-primary-dark font-medium underline-offset-4 hover:underline">Hotline <%= site.hotlinePretty %></a>
-          hoặc nhắn <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="text-zalo font-medium underline-offset-4 hover:underline">Zalo <%= site.zaloPretty %></a>
+          <a href="tel:<%= site.hotline %>" class="text-gold hover:text-gold-light transition">Hotline <%= site.hotlinePretty %></a>
+          hoặc nhắn <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="text-zalo transition">Zalo <%= site.zaloPretty %></a>
           để nhận mức giá tận gốc tốt nhất theo số lượng.
         </p>
       </div>

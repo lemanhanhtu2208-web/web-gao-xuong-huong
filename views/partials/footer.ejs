@@ -1,56 +1,62 @@
   <!-- ===================== FOOTER ===================== -->
-  <footer class="bg-primary-dark text-cream/85 pt-16 pb-28 lg:pb-10 mt-auto">
-    <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+  <footer class="relative mt-auto pt-24 pb-28 lg:pb-12 border-t border-[color:var(--glass-line-soft)]">
+    <div class="absolute inset-0 -z-10" style="background:rgba(13,11,8,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)"></div>
+    <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-12 gap-12">
       <!-- Thương hiệu -->
-      <div data-reveal>
-        <div class="flex items-center gap-3 mb-4">
-          <span class="grid place-items-center w-11 h-11 rounded-full bg-accent text-primary-dark text-xl">🌾</span>
-          <span class="font-serif font-extrabold text-xl text-cream"><%= site.brand %></span>
+      <div class="lg:col-span-4" data-reveal>
+        <div class="flex items-center gap-3.5 mb-6">
+          <span class="grid place-items-center w-11 h-11 rounded-full border border-[color:var(--glass-line)] text-gold">
+            <%- include('icon', { name: 'leaf', cls: 'ico', sw: 1.4 }) %>
+          </span>
+          <span class="brand-mark text-2xl">Xướng Hương</span>
         </div>
-        <p class="text-sm leading-relaxed mb-4">
-          <%= site.name %> – Xưởng gạo sạch tận gốc tại Đà Nẵng. Cung cấp gạo sỉ &amp; lẻ
+        <p class="muted font-light leading-relaxed mb-6 measure-sm text-[0.95rem]">
+          <%= site.name %> — xưởng gạo sạch tận gốc tại Đà Nẵng. Cung cấp gạo sỉ &amp; lẻ
           cho nhà hàng, quán ăn và mọi gia đình.
         </p>
-        <p class="text-sm flex items-center gap-2"><span class="text-accent">✔</span> VietGAP <span class="opacity-40">·</span> <span class="text-accent">✔</span> An toàn thực phẩm</p>
+        <div class="flex items-center gap-6 text-[0.72rem] uppercase tracking-[0.16em] muted">
+          <span class="flex items-center gap-2 text-gold"><%- include('icon', { name: 'award', cls: 'ico', sw: 1.4 }) %> VietGAP</span>
+          <span class="flex items-center gap-2 text-gold"><%- include('icon', { name: 'check', cls: 'ico', sw: 1.6 }) %> ATVSTP</span>
+        </div>
       </div>
 
       <!-- Liên kết -->
-      <div data-reveal data-delay="80">
-        <h3 class="font-bold text-cream text-lg mb-4">Liên kết nhanh</h3>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="/" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Trang chủ</a></li>
-          <li><a href="/gioi-thieu" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Giới thiệu xưởng</a></li>
-          <li><a href="/san-pham" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Sản phẩm</a></li>
-          <li><a href="/lien-he" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Liên hệ nhận báo giá</a></li>
+      <div class="lg:col-span-2 lg:col-start-6" data-reveal data-delay="80">
+        <h3 class="text-[0.72rem] uppercase tracking-[0.2em] text-gold mb-5 font-sans font-normal">Khám phá</h3>
+        <ul class="space-y-3 text-[0.95rem] font-light">
+          <li><a href="/" class="muted hover:text-rice transition-colors">Trang chủ</a></li>
+          <li><a href="/gioi-thieu" class="muted hover:text-rice transition-colors">Giới thiệu xưởng</a></li>
+          <li><a href="/san-pham" class="muted hover:text-rice transition-colors">Sản phẩm</a></li>
+          <li><a href="/lien-he" class="muted hover:text-rice transition-colors">Liên hệ báo giá</a></li>
         </ul>
       </div>
 
       <!-- Danh mục -->
-      <div data-reveal data-delay="160">
-        <h3 class="font-bold text-cream text-lg mb-4">Danh mục gạo</h3>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="/san-pham/gao-dac-san" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Gạo đặc sản / Gạo thơm</a></li>
-          <li><a href="/san-pham/gao-no-xop" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Gạo nở xốp</a></li>
-          <li><a href="/san-pham/gao-nep-gao-tam" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Gạo nếp / Gạo tấm</a></li>
-          <li><a href="/san-pham/gao-lut-huu-co" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Gạo lứt / Gạo hữu cơ</a></li>
-          <li><a href="/san-pham/gao-tu-thien" class="hover:text-accent hover:pl-1 transition-all duration-200 inline-block">Gạo đóng bao từ thiện</a></li>
+      <div class="lg:col-span-3" data-reveal data-delay="160">
+        <h3 class="text-[0.72rem] uppercase tracking-[0.2em] text-gold mb-5 font-sans font-normal">Dòng gạo</h3>
+        <ul class="space-y-3 text-[0.95rem] font-light">
+          <li><a href="/san-pham/gao-dac-san" class="muted hover:text-rice transition-colors">Gạo đặc sản / thơm</a></li>
+          <li><a href="/san-pham/gao-no-xop" class="muted hover:text-rice transition-colors">Gạo nở xốp</a></li>
+          <li><a href="/san-pham/gao-nep-gao-tam" class="muted hover:text-rice transition-colors">Gạo nếp / tấm</a></li>
+          <li><a href="/san-pham/gao-lut-huu-co" class="muted hover:text-rice transition-colors">Gạo lứt / hữu cơ</a></li>
+          <li><a href="/san-pham/gao-tu-thien" class="muted hover:text-rice transition-colors">Gạo đóng bao từ thiện</a></li>
         </ul>
       </div>
 
       <!-- Liên hệ -->
-      <div data-reveal data-delay="240">
-        <h3 class="font-bold text-cream text-lg mb-4">Thông tin liên hệ</h3>
-        <ul class="space-y-3 text-sm">
-          <li class="flex items-start gap-3"><span class="text-accent">📍</span><span>Xưởng/Kho: <%= site.address %></span></li>
-          <li class="flex items-start gap-3"><span class="text-accent">📞</span><a href="tel:<%= site.hotline %>" class="hover:text-accent transition">Hotline: <%= site.hotlinePretty %></a></li>
-          <li class="flex items-start gap-3"><span class="text-accent">💬</span><a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="hover:text-accent transition">Zalo: <%= site.zaloPretty %></a></li>
-          <li class="flex items-start gap-3"><span class="text-accent">✉</span><a href="mailto:<%= site.email %>" class="hover:text-accent transition"><%= site.email %></a></li>
-          <li class="flex items-start gap-3"><span class="text-accent">🕗</span><span><%= site.openHours %></span></li>
+      <div class="lg:col-span-3" data-reveal data-delay="240">
+        <h3 class="text-[0.72rem] uppercase tracking-[0.2em] text-gold mb-5 font-sans font-normal">Liên hệ</h3>
+        <ul class="space-y-4 text-[0.95rem] font-light">
+          <li class="flex items-start gap-3"><span class="text-gold mt-0.5"><%- include('icon', { name: 'pin', cls: 'ico', sw: 1.4 }) %></span><span class="muted"><%= site.address %></span></li>
+          <li class="flex items-center gap-3"><span class="text-gold"><%- include('icon', { name: 'phone', cls: 'ico', sw: 1.4 }) %></span><a href="tel:<%= site.hotline %>" class="muted hover:text-rice transition-colors"><%= site.hotlinePretty %></a></li>
+          <li class="flex items-center gap-3"><span class="text-zalo"><%- include('icon', { name: 'chat', cls: 'ico', sw: 1.4 }) %></span><a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="muted hover:text-rice transition-colors">Zalo <%= site.zaloPretty %></a></li>
+          <li class="flex items-center gap-3"><span class="text-gold"><%- include('icon', { name: 'mail', cls: 'ico', sw: 1.4 }) %></span><a href="mailto:<%= site.email %>" class="muted hover:text-rice transition-colors break-all"><%= site.email %></a></li>
         </ul>
       </div>
     </div>
 
-    <div class="container mx-auto mt-12 pt-6 border-t border-white/10 text-center text-sm text-cream/60">
-      © <%= site.year %> <%= site.name %>. Bảo lưu mọi quyền. <span class="opacity-50">|</span> Gạo sạch tận gốc – Đà Nẵng.
+    <div class="container mx-auto mt-16 pt-8 border-t border-[color:var(--glass-line-soft)] flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.72rem] tracking-[0.1em] uppercase muted">
+      <span>© <%= site.year %> <%= site.name %></span>
+      <span>Gạo sạch tận gốc · Đà Nẵng</span>
     </div>
   </footer>

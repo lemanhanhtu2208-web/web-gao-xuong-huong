@@ -3,46 +3,46 @@
 
 <main>
   <!-- ===================== PAGE HERO ===================== -->
-  <section class="hero pt-20 pb-12 md:pt-28 md:pb-16">
+  <section class="hero pt-28 pb-16 md:pt-36 md:pb-20">
     <div class="container mx-auto relative z-10 text-center">
-      <nav class="breadcrumb centered mb-6 !text-text-soft" aria-label="breadcrumb">
-        <a href="/" class="hover:text-accent-dark">Trang chủ</a> <span>/</span> <span>Giới thiệu</span>
+      <nav class="breadcrumb centered mb-8" aria-label="breadcrumb">
+        <a href="/">Trang chủ</a> <span>/</span> <span>Giới thiệu</span>
       </nav>
       <span class="hero-fade eyebrow centered" style="--d:.05s">Câu chuyện thương hiệu</span>
-      <h1 class="hero-fade display !text-[clamp(2.6rem,6vw,4.5rem)]" style="--d:.12s">Hơn một thập kỷ <em class="text-accent-dark">cùng hạt gạo Việt</em></h1>
-      <p class="hero-fade lead measure mx-auto mt-6" style="--d:.25s">Hành trình tận tâm, minh bạch và uy tín — từ một cơ sở nhỏ đến xưởng gạo của hàng trăm nhà hàng.</p>
+      <h1 class="hero-fade display !text-[clamp(2.8rem,6.5vw,5.5rem)]" style="--d:.12s">Hơn một thập kỷ <em class="text-gold-light">cùng hạt gạo Việt</em></h1>
+      <p class="hero-fade lead measure mx-auto mt-7" style="--d:.25s">Hành trình tận tâm, minh bạch và uy tín — từ một cơ sở nhỏ đến xưởng gạo của hàng trăm nhà hàng.</p>
     </div>
   </section>
 
   <!-- ===================== CÂU CHUYỆN ===================== -->
   <section class="section-tight">
-    <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <div class="container mx-auto grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
       <div data-reveal>
         <span class="eyebrow">Khởi nguồn</span>
         <h2 class="section-title">Hành trình của những hạt gạo sạch</h2>
-        <p class="text-text-soft font-light leading-relaxed mb-5 measure">
+        <p class="muted font-light leading-relaxed mb-6 measure">
           Giữa nhịp sống hối hả của Đà Nẵng, có một xưởng gạo vẫn ngày ngày lặng lẽ giữ trọn cái tâm
           với hạt gạo Việt — đó là <strong><%= site.name %></strong>. Khởi đầu từ một cơ sở kinh doanh
           gạo nhỏ với mong muốn giản dị <em>"mang hạt gạo sạch, ngon đến từng mâm cơm"</em>, Xướng Hương
           đã không ngừng lớn mạnh để trở thành địa chỉ cung ứng gạo uy tín hàng đầu miền Trung.
         </p>
-        <p class="text-text-soft font-light leading-relaxed mb-5 measure">
+        <p class="muted font-light leading-relaxed mb-6 measure">
           Người sáng lập hiểu rằng hạt gạo không chỉ là lương thực — đó là sức khỏe, là bữa cơm sum vầy
           của mỗi gia đình, là uy tín của mỗi nhà hàng. Vì lẽ đó, chúng tôi chọn một con đường không dễ
           dàng: <strong>chỉ cung cấp gạo sạch, nguồn gốc rõ ràng, chất lượng ổn định, giá minh bạch.</strong>
         </p>
-        <p class="text-text-soft font-light leading-relaxed measure">
+        <p class="muted font-light leading-relaxed measure">
           Cái tên "Xướng Hương" — nơi hương thơm cất lên — cũng chính là lời cam kết về từng hạt gạo
           thơm dẻo mà chúng tôi gửi đến khách hàng.
         </p>
       </div>
       <div class="relative" data-reveal data-delay="120">
-        <div class="media media-zoom h-[360px] md:h-[500px]">
+        <div class="media h-[400px] md:h-[540px]">
           <img src="/img/xuong-gao.jpg" alt="Xưởng gạo Xướng Hương" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
         </div>
-        <div class="glass-strong absolute -top-6 -left-2 md:-left-6 px-6 py-5 !rounded-2xl">
-          <span class="block font-display text-2xl font-semibold text-accent-dark">Since</span>
-          <span class="text-sm text-text-soft">hơn 10 năm</span>
+        <div class="glass-strong absolute -top-7 -left-2 md:-left-7 px-7 py-6">
+          <span class="block index-num">2014</span>
+          <span class="text-sm muted">năm khởi nghiệp</span>
         </div>
       </div>
     </div>
@@ -51,21 +51,21 @@
   <!-- ===================== NĂNG LỰC ===================== -->
   <section class="section-tight">
     <div class="container mx-auto">
-      <div class="measure mx-auto text-center mb-16" data-reveal>
+      <div class="measure mx-auto text-center mb-20" data-reveal>
         <span class="eyebrow centered">Năng lực thực sự</span>
         <h2 class="section-title">Lớn mạnh cùng năng lực &amp; sự tận tâm</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <% const caps = [
-          { icon:'🏭', title:'Kho bãi quy mô lớn', text:'Hệ thống kho bãi rộng rãi tại 111 Nguyễn Chí Diễu — khô ráo, thoáng mát, kiểm soát chặt chẽ để gạo luôn giữ trọn độ thơm ngon, không ẩm mốc, không mối mọt.' },
-          { icon:'🌾', title:'Liên kết vùng nguyên liệu', text:'Làm việc trực tiếp với nông dân và các vùng trồng lúa trọng điểm, cắt bỏ hoàn toàn khâu trung gian để mang đến mức giá tận gốc tốt nhất.' },
-          { icon:'📦', title:'Hàng trăm tấn mỗi tháng', text:'Mỗi tháng xưởng cung ứng hàng trăm tấn gạo cho nhà hàng, quán cơm, bếp ăn tập thể và hàng nghìn hộ gia đình trên khắp Đà Nẵng.' }
+          { icon:'warehouse', title:'Kho bãi quy mô lớn', text:'Hệ thống kho bãi rộng rãi tại 111 Nguyễn Chí Diễu — khô ráo, thoáng mát, kiểm soát chặt chẽ để gạo luôn giữ trọn độ thơm ngon, không ẩm mốc, không mối mọt.' },
+          { icon:'leaf', title:'Liên kết vùng nguyên liệu', text:'Làm việc trực tiếp với nông dân và các vùng trồng lúa trọng điểm, cắt bỏ hoàn toàn khâu trung gian để mang đến mức giá tận gốc tốt nhất.' },
+          { icon:'truck', title:'Hàng trăm tấn mỗi tháng', text:'Mỗi tháng xưởng cung ứng hàng trăm tấn gạo cho nhà hàng, quán cơm, bếp ăn tập thể và hàng nghìn hộ gia đình trên khắp Đà Nẵng.' }
         ]; %>
         <% caps.forEach(function(c, i){ %>
-          <div class="glass glass-card p-9" data-reveal data-delay="<%= i*110 %>">
-            <span class="icon-line text-2xl mb-5"><%= c.icon %></span>
-            <h3 class="text-2xl text-primary-dark mb-3"><%= c.title %></h3>
-            <p class="text-text-soft font-light text-[0.95rem] leading-relaxed"><%= c.text %></p>
+          <div class="glass glass-card p-10" data-reveal data-delay="<%= i*110 %>">
+            <span class="icon-frame mb-6"><%- include('partials/icon', { name: c.icon, cls: 'ico-lg', sw: 1.3 }) %></span>
+            <h3 class="text-2xl mb-3"><%= c.title %></h3>
+            <p class="muted font-light text-[0.95rem] leading-relaxed"><%= c.text %></p>
           </div>
         <% }); %>
       </div>
@@ -75,7 +75,7 @@
   <!-- ===================== TIMELINE ===================== -->
   <section class="section-tight">
     <div class="container mx-auto max-w-3xl">
-      <div class="text-center mb-16" data-reveal>
+      <div class="text-center mb-20" data-reveal>
         <span class="eyebrow centered">Chặng đường phát triển</span>
         <h2 class="section-title">Từ cơ sở nhỏ đến xưởng gạo uy tín</h2>
       </div>
@@ -90,9 +90,9 @@
         <% milestones.forEach(function(m, i){ %>
           <div class="timeline-item" data-reveal data-delay="<%= i*80 %>">
             <div class="timeline-dot"></div>
-            <span class="eyebrow !mb-2"><%= m.year %></span>
-            <h3 class="text-2xl text-primary-dark mb-1.5"><%= m.title %></h3>
-            <p class="text-text-soft font-light leading-relaxed"><%= m.text %></p>
+            <span class="text-[0.7rem] uppercase tracking-[0.2em] text-gold"><%= m.year %></span>
+            <h3 class="text-2xl mt-2 mb-2"><%= m.title %></h3>
+            <p class="muted font-light leading-relaxed"><%= m.text %></p>
           </div>
         <% }); %>
       </div>
@@ -102,24 +102,24 @@
   <!-- ===================== CHỨNG NHẬN ===================== -->
   <section class="section-tight">
     <div class="container mx-auto">
-      <div class="glass-dark p-10 md:p-16 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="glass p-10 md:p-16 grid lg:grid-cols-2 gap-14 items-center">
         <div data-reveal>
-          <span class="eyebrow centered on-dark !mx-0">Cam kết chất lượng</span>
-          <h2 class="section-title text-cream">Minh chứng bằng chứng nhận</h2>
-          <p class="text-cream/80 font-light leading-relaxed mb-7">
+          <span class="eyebrow">Cam kết chất lượng</span>
+          <h2 class="section-title">Minh chứng bằng chứng nhận</h2>
+          <p class="muted font-light leading-relaxed mb-8">
             Niềm tin của khách hàng là tài sản quý giá nhất của Xướng Hương. Toàn bộ quy trình từ
             tuyển chọn nguyên liệu, bảo quản đến đóng gói đều tuân thủ nghiêm ngặt các tiêu chuẩn an toàn.
           </p>
-          <ul class="space-y-5">
-            <li class="flex items-start gap-4"><span class="cert-badge">VietGAP</span><span class="text-cream/85 font-light">Thực hành sản xuất nông nghiệp tốt — kiểm soát chất lượng theo tiêu chuẩn.</span></li>
-            <li class="flex items-start gap-4"><span class="cert-badge">ATVSTP</span><span class="text-cream/85 font-light">Giấy chứng nhận cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm.</span></li>
+          <ul class="space-y-6">
+            <li class="flex items-start gap-5"><span class="cert-badge">VietGAP</span><span class="muted font-light">Thực hành sản xuất nông nghiệp tốt — kiểm soát chất lượng theo tiêu chuẩn.</span></li>
+            <li class="flex items-start gap-5"><span class="cert-badge">ATVSTP</span><span class="muted font-light">Giấy chứng nhận cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm.</span></li>
           </ul>
         </div>
         <div class="grid grid-cols-2 gap-4" data-reveal data-delay="120">
-          <div class="media h-40"><img src="/img/chung-nhan-vietgap.jpg" alt="Chứng nhận VietGAP" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
-          <div class="media h-40"><img src="/img/chung-nhan-atvstp.jpg" alt="Chứng nhận ATVSTP" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
-          <div class="media h-40"><img src="/img/kho-1.jpg" alt="Kho gạo thực tế" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
-          <div class="media h-40"><img src="/img/kho-2.jpg" alt="Đóng gói gạo" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
+          <div class="media h-44"><img src="/img/chung-nhan-vietgap.jpg" alt="Chứng nhận VietGAP" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
+          <div class="media h-44"><img src="/img/chung-nhan-atvstp.jpg" alt="Chứng nhận ATVSTP" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
+          <div class="media h-44"><img src="/img/kho-1.jpg" alt="Kho gạo thực tế" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
+          <div class="media h-44"><img src="/img/kho-2.jpg" alt="Đóng gói gạo" loading="lazy" onerror="this.src='/img/placeholder.svg'" /></div>
         </div>
       </div>
     </div>
@@ -128,16 +128,16 @@
   <!-- ===================== CỘNG ĐỒNG + CTA ===================== -->
   <section class="section-tight">
     <div class="container mx-auto">
-      <div class="glass-strong p-12 md:p-20 text-center measure mx-auto" data-reveal>
-        <div class="text-4xl mb-6">🤝</div>
+      <div class="glass-strong p-12 md:p-24 text-center measure mx-auto" data-reveal>
+        <span class="eyebrow centered">Trách nhiệm cộng đồng</span>
         <h2 class="section-title">Đồng hành cùng cộng đồng</h2>
-        <p class="text-text-soft font-light leading-relaxed mb-8">
+        <p class="muted font-light leading-relaxed mb-10">
           Không chỉ kinh doanh, Xướng Hương còn mong muốn lan tỏa giá trị tốt đẹp — luôn sẵn lòng đồng
           hành cùng các chương trình thiện nguyện với mức giá ưu đãi nhất. Bởi chúng tôi tin rằng, một
           hạt gạo sẻ chia cũng là một hạt gạo ý nghĩa.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/lien-he" class="btn btn-primary btn-lg">📞 Nhận báo giá ngay</a>
+          <a href="/lien-he" class="btn btn-gold btn-lg">Nhận báo giá ngay</a>
           <a href="/san-pham" class="btn btn-ghost btn-lg">Xem sản phẩm</a>
         </div>
       </div>

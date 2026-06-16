@@ -2,7 +2,6 @@
 <%- include('partials/header') %>
 
 <%
-  // Dữ liệu an toàn (phòng khi danh mục đến từ DB thiếu trường hiển thị)
   var gallery = (category.gallery && category.gallery.length) ? category.gallery : [category.image];
   var ratings = category.ratings || [];
   var varieties = category.varieties || [];
@@ -11,19 +10,19 @@
 
 <main>
   <!-- ===================== BREADCRUMB ===================== -->
-  <div class="container mx-auto pt-8">
-    <nav class="breadcrumb breadcrumb-dark" aria-label="breadcrumb">
+  <div class="container mx-auto pt-10">
+    <nav class="breadcrumb" aria-label="breadcrumb">
       <a href="/">Trang chủ</a> <span>/</span>
       <a href="/san-pham">Sản phẩm</a> <span>/</span>
-      <span><%= category.name %></span>
+      <span class="text-rice-soft"><%= category.name %></span>
     </nav>
   </div>
 
   <!-- ===================== CHI TIẾT ===================== -->
-  <section class="section-tight !pt-10">
+  <section class="section-tight !pt-12">
     <div class="container mx-auto grid lg:grid-cols-2 gap-14">
 
-      <!-- ===== SLIDER ẢNH ===== -->
+      <!-- ===== SLIDER ===== -->
       <div data-reveal>
         <div class="detail-slider" data-slider>
           <div class="slider-viewport glass !p-2">
@@ -31,11 +30,10 @@
               <% gallery.forEach(function(src, i){ %>
                 <div class="slider-slide">
                   <img src="<%= src %>" alt="<%= category.name %> - ảnh <%= i+1 %>" loading="<%= i===0 ? 'eager' : 'lazy' %>"
-                       class="w-full h-[340px] md:h-[480px] object-cover rounded-[1.4rem]" onerror="this.src='/img/placeholder.svg'" />
+                       class="w-full h-[360px] md:h-[520px] object-cover rounded-[1.1rem]" onerror="this.src='/img/placeholder.svg'" />
                 </div>
               <% }); %>
             </div>
-
             <% if (gallery.length > 1) { %>
               <button type="button" class="slider-btn slider-prev" data-prev aria-label="Ảnh trước">‹</button>
               <button type="button" class="slider-btn slider-next" data-next aria-label="Ảnh sau">›</button>
@@ -45,10 +43,8 @@
                 <% }); %>
               </div>
             <% } %>
-
-            <span class="absolute top-5 left-5 z-10 px-3 py-1 rounded-full glass-strong text-primary-dark text-xs font-medium"><%= category.icon %> <%= category.shortName %></span>
+            <span class="absolute top-6 left-6 z-10 text-[0.68rem] uppercase tracking-[0.16em] text-gold-light"><%= category.shortName %></span>
           </div>
-
           <% if (gallery.length > 1) { %>
             <div class="slider-thumbs" data-thumbs>
               <% gallery.forEach(function(src, i){ %>
@@ -64,77 +60,72 @@
       <!-- ===== THÔNG TIN ===== -->
       <div data-reveal data-delay="120">
         <span class="eyebrow"><%= category.shortName %></span>
-        <h1 class="section-title !mb-3"><%= category.name %></h1>
-        <p class="text-xl font-display italic text-accent-dark mb-5"><%= category.tagline %></p>
-        <p class="text-text-soft font-light leading-relaxed mb-8 measure"><%= category.intro %></p>
+        <h1 class="section-title !mb-4"><%= category.name %></h1>
+        <p class="font-display text-2xl italic text-gold-light mb-6"><%= category.tagline %></p>
+        <p class="muted font-light leading-relaxed mb-10 measure"><%= category.intro %></p>
 
-        <!-- Bảng thông số đặc tính -->
         <% if (ratings.length) { %>
-          <div class="glass p-7 mb-8">
-            <h2 class="font-display text-2xl font-semibold text-primary-dark mb-5">Thông số đặc tính</h2>
-            <div class="space-y-5">
+          <div class="glass p-8 mb-8">
+            <h2 class="font-display text-2xl font-medium mb-6">Thông số đặc tính</h2>
+            <div class="space-y-6">
               <% ratings.forEach(function(r){ %>
-                <div class="flex items-center gap-4">
-                  <span class="w-36 shrink-0 text-sm text-text-soft font-light"><%= r.label %></span>
-                  <div class="flex-1 rating-track">
-                    <span class="rating-bar" style="--w: <%= (r.score/5*100) %>%"></span>
-                  </div>
-                  <span class="w-10 text-right text-sm font-medium text-primary-dark"><%= r.score %>/5</span>
+                <div class="flex items-center gap-5">
+                  <span class="w-36 shrink-0 text-sm muted font-light"><%= r.label %></span>
+                  <div class="flex-1 rating-track"><span class="rating-bar" style="--w: <%= (r.score/5*100) %>%"></span></div>
+                  <span class="w-10 text-right text-sm text-gold"><%= r.score %>/5</span>
                 </div>
               <% }); %>
             </div>
           </div>
         <% } %>
 
-        <!-- Đặc tính nhanh -->
-        <div class="grid sm:grid-cols-2 gap-3 mb-8">
+        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-1 mb-10">
           <% category.features.forEach(function(f){ %>
-            <div class="flex items-start gap-2.5 py-2 border-b border-[color:var(--glass-line-soft)]">
-              <span class="text-accent-dark text-sm mt-1">✦</span>
-              <span class="text-sm font-light"><strong><%= f.label %>:</strong> <span class="text-text-soft"><%= f.value %></span></span>
+            <div class="flex items-start gap-3 py-3 border-b border-[color:var(--glass-line-soft)]">
+              <span class="text-gold mt-1"><%- include('partials/icon', { name: 'spark', cls: 'ico', sw: 1.4 }) %></span>
+              <span class="text-sm font-light"><strong><%= f.label %>:</strong> <span class="muted"><%= f.value %></span></span>
             </div>
           <% }); %>
         </div>
 
-        <!-- Giá / CTA -->
-        <div class="glass-dark p-8">
-          <p class="text-cream/70 text-xs uppercase tracking-wide mb-1">Chính sách giá</p>
-          <p class="font-display text-3xl font-semibold text-accent mb-1">Báo giá sỉ tận gốc</p>
-          <p class="text-cream/70 font-light text-sm mb-6">Báo giá theo số lượng &amp; quy cách — nhanh trong ít phút.</p>
+        <div class="glass-strong p-8">
+          <p class="text-[0.68rem] uppercase tracking-[0.16em] muted mb-2">Chính sách giá</p>
+          <p class="font-display text-3xl font-medium text-gold mb-2">Báo giá sỉ tận gốc</p>
+          <p class="muted font-light text-sm mb-7">Báo giá theo số lượng &amp; quy cách — nhanh trong ít phút.</p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo flex-1">💬 Zalo <%= site.zaloPretty %></a>
-            <a href="tel:<%= site.hotline %>" class="btn btn-accent flex-1">📞 <%= site.hotlinePretty %></a>
+            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo flex-1">Zalo <%= site.zaloPretty %></a>
+            <a href="tel:<%= site.hotline %>" class="btn btn-gold flex-1"><%= site.hotlinePretty %></a>
           </div>
-          <a href="/lien-he?sp=<%= category.slug %>" class="block text-center mt-4 text-cream/75 text-sm hover:text-accent transition">Hoặc gửi yêu cầu qua form →</a>
+          <a href="/lien-he?sp=<%= category.slug %>" class="block text-center mt-5 muted text-sm hover:text-gold transition">Hoặc gửi yêu cầu qua form →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== MÔ TẢ + GIỐNG GẠO + SIDEBAR ===================== -->
+  <!-- ===================== MÔ TẢ + GIỐNG + SIDEBAR ===================== -->
   <section class="section-tight !pt-0">
     <div class="container mx-auto grid lg:grid-cols-3 gap-8 items-start">
 
-      <div class="lg:col-span-2 space-y-8">
-        <div class="glass p-8 md:p-10" data-reveal>
-          <h2 class="section-title !text-3xl !mb-6">Mô tả chi tiết</h2>
-          <div class="space-y-5">
+      <div class="lg:col-span-2 space-y-6">
+        <div class="glass p-8 md:p-12" data-reveal>
+          <h2 class="section-title !text-3xl !mb-8">Mô tả chi tiết</h2>
+          <div class="space-y-6">
             <% longDesc.forEach(function(p){ %>
-              <p class="text-text-soft font-light leading-relaxed"><%= p %></p>
+              <p class="muted font-light leading-relaxed"><%= p %></p>
             <% }); %>
           </div>
         </div>
 
         <% if (varieties.length) { %>
-          <div class="glass p-8 md:p-10" data-reveal data-delay="80">
-            <h2 class="section-title !text-3xl !mb-6">Các giống gạo tiêu biểu</h2>
-            <div class="grid sm:grid-cols-2 gap-5">
+          <div class="glass p-8 md:p-12" data-reveal data-delay="80">
+            <h2 class="section-title !text-3xl !mb-8">Các giống gạo tiêu biểu</h2>
+            <div class="grid sm:grid-cols-2 gap-x-8 gap-y-7">
               <% varieties.forEach(function(v, i){ %>
-                <div class="flex gap-4">
-                  <span class="font-display text-2xl font-semibold text-accent-dark shrink-0">0<%= i+1 %></span>
+                <div class="flex gap-5">
+                  <span class="index-num !text-3xl">0<%= i+1 %></span>
                   <div>
-                    <h3 class="text-xl text-primary-dark mb-1"><%= v.name %></h3>
-                    <p class="text-sm text-text-soft font-light leading-relaxed"><%= v.note %></p>
+                    <h3 class="text-xl mb-1"><%= v.name %></h3>
+                    <p class="text-sm muted font-light leading-relaxed"><%= v.note %></p>
                   </div>
                 </div>
               <% }); %>
@@ -143,42 +134,39 @@
         <% } %>
       </div>
 
-      <aside class="space-y-6 lg:sticky lg:top-28" data-reveal data-delay="160">
+      <aside class="space-y-5 lg:sticky lg:top-28" data-reveal data-delay="160">
         <div class="glass p-7">
-          <h3 class="font-display text-xl font-semibold text-primary-dark mb-2">🍳 Cách nấu ngon</h3>
-          <p class="text-text-soft font-light text-sm leading-relaxed"><%= category.cooking %></p>
+          <h3 class="font-display text-xl font-medium mb-3">Cách nấu ngon</h3>
+          <p class="muted font-light text-sm leading-relaxed"><%= category.cooking %></p>
         </div>
-
         <div class="glass p-7">
-          <h3 class="font-display text-xl font-semibold text-primary-dark mb-3">📦 Quy cách đóng gói</h3>
+          <h3 class="font-display text-xl font-medium mb-4">Quy cách đóng gói</h3>
           <div class="flex flex-wrap gap-2">
             <% category.packaging.forEach(function(p){ %>
-              <span class="px-3 py-1.5 rounded-full border border-[color:var(--glass-line-soft)] text-sm text-primary-dark"><%= p %></span>
+              <span class="px-3 py-1.5 rounded-full border border-[color:var(--glass-line-soft)] text-sm muted"><%= p %></span>
             <% }); %>
           </div>
-          <p class="text-xs text-text-soft font-light mt-4">Túi nhỏ 5kg cho gia đình · Bao 10–50kg cho khách sỉ.</p>
+          <p class="text-xs muted font-light mt-4">Túi nhỏ 5kg cho gia đình · Bao 10–50kg cho khách sỉ.</p>
         </div>
-
         <div class="glass p-7">
-          <h3 class="font-display text-xl font-semibold text-primary-dark mb-2">👥 Phù hợp với</h3>
-          <p class="text-sm text-text-soft font-light leading-relaxed"><%= category.suitableFor %></p>
+          <h3 class="font-display text-xl font-medium mb-3">Phù hợp với</h3>
+          <p class="text-sm muted font-light leading-relaxed"><%= category.suitableFor %></p>
         </div>
-
-        <div class="glass-dark p-7 text-center">
-          <p class="font-display text-xl font-semibold text-accent mb-4">Cần báo giá ngay?</p>
+        <div class="glass-strong p-7 text-center">
+          <p class="font-display text-xl font-medium text-gold mb-5">Cần báo giá ngay?</p>
           <div class="flex flex-col gap-3">
-            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo">💬 Zalo <%= site.zaloPretty %></a>
-            <a href="tel:<%= site.hotline %>" class="btn btn-accent">📞 <%= site.hotlinePretty %></a>
+            <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo">Zalo <%= site.zaloPretty %></a>
+            <a href="tel:<%= site.hotline %>" class="btn btn-gold"><%= site.hotlinePretty %></a>
           </div>
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- ===================== SẢN PHẨM LIÊN QUAN ===================== -->
+  <!-- ===================== LIÊN QUAN ===================== -->
   <section class="section-tight">
     <div class="container mx-auto">
-      <div class="text-center mb-14" data-reveal>
+      <div class="text-center mb-16" data-reveal>
         <span class="eyebrow centered">Khám phá thêm</span>
         <h2 class="section-title">Các dòng gạo khác</h2>
       </div>
@@ -188,10 +176,10 @@
             <a href="/san-pham/<%= cat.slug %>" class="media media-zoom block h-52 !rounded-none">
               <img src="<%= cat.image %>" alt="<%= cat.name %>" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
             </a>
-            <div class="p-7 flex flex-col flex-1">
-              <h3 class="text-2xl text-primary-dark mb-2"><a href="/san-pham/<%= cat.slug %>" class="hover:text-accent-dark transition"><%= cat.name %></a></h3>
-              <p class="text-text-soft font-light text-[0.95rem] mb-6 flex-1 leading-relaxed"><%= cat.tagline %></p>
-              <a href="/san-pham/<%= cat.slug %>" class="btn btn-ghost !py-3 text-sm">Xem chi tiết</a>
+            <div class="p-8 flex flex-col flex-1">
+              <h3 class="text-2xl mb-3"><a href="/san-pham/<%= cat.slug %>" class="hover:text-gold-light transition"><%= cat.name %></a></h3>
+              <p class="muted font-light text-[0.95rem] mb-6 flex-1 leading-relaxed"><%= cat.tagline %></p>
+              <a href="/san-pham/<%= cat.slug %>" class="link-arrow !text-[0.7rem]">Xem chi tiết <%- include('partials/icon', { name: 'arrow', cls: 'ico', sw: 1.6 }) %></a>
             </div>
           </article>
         <% }); %>
