@@ -52,15 +52,18 @@
   <style>
     /* ── Design tokens ─────────────────────────────── */
     :root {
-      --c:   #F5F0E8;   /* cream */
-      --cd:  #E8DFD0;   /* cream dark */
-      --pg:  #FAF7F2;   /* page bg */
-      --br:  #5C4A1E;   /* brown */
-      --brl: #8B6B3E;   /* brown light */
-      --brd: #3D2E0A;   /* brown deep */
-      --sg:  #4A5E3A;   /* sage */
-      --ik:  #2A2418;   /* ink */
-      --mt:  #8C8070;   /* muted */
+      --c:   #F7F1E6;   /* cream */
+      --cd:  #ECE0CB;   /* cream dark */
+      --pg:  #FCF9F3;   /* page bg */
+      --br:  #6B5320;   /* brown */
+      --brl: #9C7A38;   /* brown light */
+      --brd: #3A2C0C;   /* brown deep */
+      --gold:#D9A441;   /* gold accent — bông lúa chín */
+      --gold-d:#C2912F; /* gold dark */
+      --sg:  #5A7A3F;   /* sage — đồng lúa xanh */
+      --sg-l:#7B9655;   /* sage light */
+      --ik:  #2C2515;   /* ink */
+      --mt:  #8A7C66;   /* muted */
       --zl:  #2FAE60;   /* zalo */
       --sp:  clamp(72px,10vw,128px);
       --sp-s:clamp(48px,7vw,88px);
@@ -105,11 +108,11 @@
     .f-label { font-size: 0.66rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.22em; color: var(--mt); }
     .f-eyebrow {
       display: inline-flex; align-items: center; gap: 0.7rem;
-      font-size: 0.66rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.26em;
-      color: var(--brl); margin-bottom: 1rem;
+      font-size: 0.66rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.26em;
+      color: var(--gold-d); margin-bottom: 1rem;
     }
     .f-eyebrow::before {
-      content: ''; display: block; width: 1.8rem; height: 1px; background: var(--brl); flex-shrink: 0;
+      content: ''; display: block; width: 1.8rem; height: 2px; background: var(--gold); flex-shrink: 0; border-radius: 2px;
     }
 
     /* ── Layout ────────────────────────────────────── */
@@ -138,8 +141,8 @@
       cursor: pointer; transition: all 0.28s cubic-bezier(.22,.61,.36,1); white-space: nowrap;
     }
     .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--br); color: #fff; border-color: var(--br); }
-    .btn-primary:hover { background: var(--brd); border-color: var(--brd); }
+    .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-d)); color: var(--brd); border-color: var(--gold-d); box-shadow: 0 6px 18px rgba(217,164,65,.3); font-weight: 500; }
+    .btn-primary:hover { filter: brightness(1.05); box-shadow: 0 8px 24px rgba(217,164,65,.4); }
     .btn-outline { background: transparent; color: var(--br); border-color: var(--br); }
     .btn-outline:hover { background: var(--br); color: #fff; }
     .btn-light { background: #fff; color: var(--brd); border-color: var(--cd); }
@@ -222,7 +225,10 @@
     #topbar a:hover { color: var(--br); }
 
     /* ── Hero ──────────────────────────────────────── */
-    #hero { padding-block: clamp(60px,9vw,112px); }
+    #hero {
+      padding-block: clamp(60px,9vw,112px);
+      background: radial-gradient(80% 90% at 92% 8%, rgba(217,164,65,.1), transparent 60%);
+    }
     .hero-grid { display: grid; gap: 3.5rem; align-items: center; }
     @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
     .hero-img-wrap {
@@ -248,13 +254,16 @@
       background: var(--pg); border: 1.5px solid var(--cd); border-radius: 1.25rem;
       padding: 2.25rem; transition: box-shadow 0.35s, transform 0.35s, border-color 0.35s;
     }
-    .usp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(60,46,10,.09); border-color: var(--brl); }
+    .usp-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(60,46,10,.1); border-color: var(--gold); }
     .usp-icon {
-      width: 3rem; height: 3rem; border-radius: 0.75rem;
-      background: var(--c); border: 1.5px solid var(--cd);
-      display: grid; place-items: center; color: var(--br); margin-bottom: 1.5rem;
+      width: 3.25rem; height: 3.25rem; border-radius: 0.875rem;
+      background: linear-gradient(135deg, #F4D789, var(--gold));
+      box-shadow: 0 6px 18px rgba(217,164,65,.28);
+      display: grid; place-items: center; color: #fff; margin-bottom: 1.5rem;
+      transition: transform 0.35s;
     }
-    .usp-num { font-family: 'Cormorant Garamond', serif; font-size: 0.72rem; font-weight: 500; color: var(--cd); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .usp-card:hover .usp-icon { transform: scale(1.06) rotate(-3deg); }
+    .usp-num { font-family: 'DM Sans', sans-serif; font-size: 0.66rem; font-weight: 500; color: var(--gold-d); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
 
     /* ── Product cards ─────────────────────────────── */
     .prod-card {
@@ -300,7 +309,7 @@
       padding: 2rem 2.25rem;
     }
     .stars { display: flex; gap: 0.25rem; margin-bottom: 1rem; }
-    .stars svg { width: 0.9rem; height: 0.9rem; color: var(--brl); fill: var(--brl); }
+    .stars svg { width: 0.95rem; height: 0.95rem; color: var(--gold); fill: var(--gold); }
     .testi-avatar {
       width: 2.5rem; height: 2.5rem; border-radius: 50%;
       background: var(--cd); display: grid; place-items: center;
@@ -347,7 +356,12 @@
     .ci { width: 2.5rem; height: 2.5rem; border-radius: 0.625rem; background: var(--pg); border: 1.5px solid var(--cd); display: grid; place-items: center; color: var(--br); flex-shrink: 0; }
 
     /* ── CTA band ──────────────────────────────────── */
-    .cta-band { background: var(--brd); padding-block: clamp(56px,8vw,88px); text-align: center; }
+    .cta-band {
+      background:
+        radial-gradient(120% 140% at 50% 0%, rgba(217,164,65,.22), transparent 55%),
+        var(--brd);
+      padding-block: clamp(56px,8vw,88px); text-align: center; position: relative; overflow: hidden;
+    }
 
     /* ── Footer ────────────────────────────────────── */
     .footer { background: var(--brd); color: rgba(245,240,232,.55); padding-top: 4.5rem; padding-bottom: 6rem; }
@@ -400,6 +414,37 @@
     .mob-bar svg { width: 1.2rem; height: 1.2rem; }
     .mob-bar-space { height: 64px; display: block; }
     @media (min-width: 1024px) { .mob-bar-space { display: none; } }
+
+    /* ── Gallery / Quy trình ──────────────────────── */
+    .gallery-grid {
+      display: grid; gap: 0.875rem;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 11rem;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 13rem; }
+    }
+    .gal {
+      position: relative; overflow: hidden; border-radius: 0.875rem;
+      background: linear-gradient(135deg, #F4E4BE, #E8DBB8);
+    }
+    .gal img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(.22,.61,.36,1); }
+    .gal:hover img { transform: scale(1.07); }
+    .gal::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(58,44,12,.72));
+      opacity: 0.85; transition: opacity 0.4s;
+    }
+    .gal:hover::after { opacity: 1; }
+    .gal-cap {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 1rem; color: #fff;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em;
+      transform: translateY(4px); transition: transform 0.4s;
+    }
+    .gal:hover .gal-cap { transform: translateY(0); }
+    .gal-tall { grid-row: span 2; }
+    @media (max-width: 767px) { .gal-tall { grid-row: span 2; } }
 
     /* ── Reveal animation ──────────────────────────── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s cubic-bezier(.22,.61,.36,1), transform 0.85s cubic-bezier(.22,.61,.36,1); }
@@ -542,7 +587,7 @@
 
       <!-- Image -->
       <div class="hero-img-wrap reveal reveal-d1">
-        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=80" alt="Gạo sạch Xướng Hương Đà Nẵng" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=80" alt="Gạo sạch Xướng Hương Đà Nẵng" loading="lazy" onerror="riceFallback(this)" />
         <div class="hero-badge">
           <div class="hero-badge-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ico-award"/></svg>
@@ -619,7 +664,7 @@
 
       <div class="prod-card reveal">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1600718374662-0483d2b9da44?auto=format&fit=crop&w=600&q=80" alt="Gạo đặc sản thơm" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1600718374662-0483d2b9da44?auto=format&fit=crop&w=600&q=80" alt="Gạo đặc sản thơm" loading="lazy" onerror="riceFallback(this)" />
           <span class="prod-tag" style="color:var(--br);">Bestseller</span>
         </div>
         <div class="prod-body">
@@ -634,7 +679,7 @@
 
       <div class="prod-card reveal reveal-d1">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1536304993881-ff86e0c9ef1d?auto=format&fit=crop&w=600&q=80" alt="Gạo nở xốp quán cơm" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1536304993881-ff86e0c9ef1d?auto=format&fit=crop&w=600&q=80" alt="Gạo nở xốp quán cơm" loading="lazy" onerror="riceFallback(this)" />
           <span class="prod-tag" style="color:var(--sg);">Quán cơm</span>
         </div>
         <div class="prod-body">
@@ -649,7 +694,7 @@
 
       <div class="prod-card reveal reveal-d2">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&w=600&q=80" alt="Gạo lứt hữu cơ" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&w=600&q=80" alt="Gạo lứt hữu cơ" loading="lazy" onerror="riceFallback(this)" />
           <span class="prod-tag" style="color:var(--sg);">Sức khoẻ</span>
         </div>
         <div class="prod-body">
@@ -664,7 +709,7 @@
 
       <div class="prod-card reveal reveal-d3">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1550828554-35e4c3f97f36?auto=format&fit=crop&w=600&q=80" alt="Gạo nếp tấm" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1550828554-35e4c3f97f36?auto=format&fit=crop&w=600&q=80" alt="Gạo nếp tấm" loading="lazy" onerror="riceFallback(this)" />
           <span class="prod-tag" style="color:var(--brl);">Đa dạng</span>
         </div>
         <div class="prod-body">
@@ -689,7 +734,7 @@
     <div style="display:grid;gap:3.5rem;align-items:center;" class="about-grid">
 
       <div class="about-img reveal">
-        <img src="https://images.unsplash.com/photo-1536743983822-3e3fcef8f1a8?auto=format&fit=crop&w=900&q=80" alt="Xưởng xay xát gạo Xướng Hương" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1536743983822-3e3fcef8f1a8?auto=format&fit=crop&w=900&q=80" alt="Xưởng xay xát gạo Xướng Hương" loading="lazy" onerror="riceFallback(this)" />
         <div class="about-stat">
           <div class="about-stat-num">100+</div>
           <div class="f-label" style="margin-top:.35rem;">Tấn gạo / tháng</div>
@@ -712,6 +757,44 @@
         <a href="#bao-gia" class="btn btn-primary btn-lg">Liên hệ tư vấn ngay</a>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SHOWCASE / QUY TRÌNH ══════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--brd);">
+  <div class="container">
+    <div style="max-width:36rem;margin-bottom:3rem;" class="reveal">
+      <p class="f-eyebrow" style="color:var(--gold);">Từ đồng ruộng đến bữa cơm</p>
+      <h2 class="f-h2" style="color:#fff;">Hành trình của hạt gạo Xướng Hương</h2>
+      <p style="font-size:1rem;font-weight:300;line-height:1.85;color:rgba(247,241,230,.6);">Mỗi hạt gạo là kết tinh của nắng gió đồng quê, bàn tay người nông dân và quy trình chế biến chuẩn mực.</p>
+    </div>
+
+    <div class="gallery-grid reveal reveal-d1">
+      <div class="gal gal-tall">
+        <img src="https://images.unsplash.com/photo-1568347355280-d33fdf77d42e?auto=format&fit=crop&w=700&q=80" alt="Cánh đồng lúa chín" loading="lazy" onerror="riceFallback(this)" />
+        <span class="gal-cap">Cánh đồng lúa chín vàng</span>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=500&q=80" alt="Gạo trắng ngần" loading="lazy" onerror="riceFallback(this)" />
+        <span class="gal-cap">Hạt gạo trắng ngần</span>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1536304993881-ff86e0c9ef1d?auto=format&fit=crop&w=500&q=80" alt="Gạo đóng bao" loading="lazy" onerror="riceFallback(this)" />
+        <span class="gal-cap">Đóng bao chuẩn vệ sinh</span>
+      </div>
+      <div class="gal gal-tall">
+        <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=700&q=80" alt="Gạo trong túi đay" loading="lazy" onerror="riceFallback(this)" />
+        <span class="gal-cap">Gạo mộc trong túi đay</span>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&w=500&q=80" alt="Gạo lứt hữu cơ" loading="lazy" onerror="riceFallback(this)" />
+        <span class="gal-cap">Gạo lứt giàu dinh dưỡng</span>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1594489573599-5f9d62b67086?auto=format&fit=crop&w=500&q=80" alt="Cơm trắng dẻo thơm" loading="lazy" onerror="riceFallback(this)" />
+        <span class="gal-cap">Cơm dẻo thơm mỗi bữa</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1025,6 +1108,22 @@
   style="position:fixed;bottom:5rem;right:1.5rem;z-index:59;width:2.4rem;height:2.4rem;border-radius:50%;background:#fff;border:1.5px solid var(--cd);color:var(--mt);font-size:.8rem;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(60,46,10,.1);transition:opacity .3s;">↑</button>
 
 <script>
+  /* ── Image fallback: ảnh lỗi → minh hoạ bông lúa vàng ── */
+  function riceFallback(img){
+    img.onerror = null;
+    img.src = "data:image/svg+xml," + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">' +
+      '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
+      '<stop offset="0" stop-color="#F4E4BE"/><stop offset="1" stop-color="#D9A441"/>' +
+      '</linearGradient></defs><rect width="400" height="400" fill="url(#g)"/>' +
+      '<g stroke="#8B6B3E" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.55" transform="translate(200 210)">' +
+      '<path d="M0 110V-40"/>' +
+      '<path d="M0 -10c30-15 55-15 70-45-30-15-55 0-70 30zM0 -10c-30-15-55-15-70-45 30-15 55 0 70 30z"/>' +
+      '<path d="M0 40c30-15 55-15 70-45-30-15-55 0-70 30zM0 40c-30-15-55-15-70-45 30-15 55 0 70 30z"/>' +
+      '</g></svg>'
+    );
+  }
+
   /* ── About grid responsive ── */
   (function(){
     var g = document.querySelector('.about-grid');
