@@ -153,6 +153,79 @@
     </div>
   </section>
 
+  <!-- ===================== ĐÁNH GIÁ KHÁCH HÀNG ===================== -->
+  <section class="py-16 md:py-24 bg-white overflow-hidden">
+    <div class="container mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
+        <span class="eyebrow">Khách hàng nói gì</span>
+        <h2 class="section-title">Hàng Trăm Nhà Hàng &amp; Gia Đình Đã Tin Dùng</h2>
+        <p class="text-text-soft">Những phản hồi thực tế từ khách hàng B2B &amp; B2C của Xướng Hương tại Đà Nẵng.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <% const testimonials = [
+          {
+            name: 'Chị Nguyễn Thị Hoa',
+            role: 'Bếp trưởng — Nhà hàng Phú Xuân',
+            avatar: '👩‍🍳',
+            stars: 5,
+            text: 'Xướng Hương giao gạo đúng hẹn, chất lượng đồng đều từ lô này sang lô khác. Gạo ST25 thơm chuẩn, cơm nấu ra hạt tách rời đẹp lắm. Nhà hàng chúng tôi dùng gần 2 năm rồi, chưa bao giờ phải phàn nàn về chất lượng.'
+          },
+          {
+            name: 'Anh Trần Văn Minh',
+            role: 'Chủ quán cơm bình dân — Q. Thanh Khê',
+            avatar: '👨‍💼',
+            stars: 5,
+            text: 'Lấy gạo nở xốp của Xướng Hương từ hồi mới mở quán. Một ký gạo nấu ra được nhiều cơm, giá thành rẻ hơn hẳn chỗ cũ. Quan trọng là chốt đơn qua Zalo, sáng hôm sau là có giao tận nơi, tiện lắm!'
+          },
+          {
+            name: 'Chị Lê Thị Thu',
+            role: 'Giám đốc — Cty Suất Ăn Công Nghiệp Miền Trung',
+            avatar: '👩‍💼',
+            stars: 5,
+            text: 'Chúng tôi cần gạo số lượng lớn mỗi tháng. Xướng Hương luôn đảm bảo nguồn hàng ổn định, kể cả vào dịp lễ tết. Hóa đơn VAT đầy đủ, chứng nhận VietGAP rõ ràng — đúng yêu cầu đối tác B2B.'
+          },
+          {
+            name: 'Anh Phạm Quang Hùng',
+            role: 'Khách hàng cá nhân — P. Hải Châu',
+            avatar: '👨‍👩‍👧',
+            stars: 5,
+            text: 'Mua gạo lứt huyết rồng cho cả nhà ăn. Hỏi tư vấn qua Zalo, nhân viên giải thích rất tận tâm, không hề bán ép. Gạo giao đến tay sạch sẽ, bao bì chắc chắn. Gia đình tôi sẽ tiếp tục ủng hộ!'
+          },
+          {
+            name: 'Chú Ngô Thanh Tâm',
+            role: 'Chủ đại lý gạo — Q. Ngũ Hành Sơn',
+            avatar: '🧑‍🦳',
+            stars: 5,
+            text: 'Làm đại lý cho Xướng Hương được 3 năm. Hàng luôn đúng trọng lượng, giá cạnh tranh, chiết khấu hợp lý. Khi cần hàng gấp gọi một cái là xưởng sắp xe giao ngay. Đây là đối tác đáng tin để lâu dài.'
+          },
+          {
+            name: 'Chị Võ Thị Ánh Tuyết',
+            role: 'Quản lý bếp — Trường mầm non tư thục',
+            avatar: '👩‍🏫',
+            stars: 5,
+            text: 'Trường dùng gạo Xướng Hương nấu ăn cho các bé. Điều tôi yên tâm nhất là có đầy đủ giấy chứng nhận an toàn thực phẩm — phụ huynh hỏi là xuất được ngay. Gạo thơm, cơm ngon, các con ăn được nhiều hơn!'
+          }
+        ]; %>
+        <% testimonials.forEach(function(t, i){ %>
+          <div class="bg-cream rounded-2xl p-7 border border-border-soft flex flex-col card-hover" data-reveal data-delay="<%= (i%3)*100 %>">
+            <div class="flex gap-1 mb-4 text-accent text-lg">
+              <% for(var s=0;s<t.stars;s++){ %><span>★</span><% } %>
+            </div>
+            <p class="text-text-soft leading-relaxed flex-1 italic mb-6">"<%= t.text %>"</p>
+            <div class="flex items-center gap-3 pt-4 border-t border-border-soft">
+              <span class="w-11 h-11 grid place-items-center rounded-full bg-accent-soft text-2xl flex-shrink-0"><%= t.avatar %></span>
+              <div>
+                <p class="font-bold text-text-main text-sm"><%= t.name %></p>
+                <p class="text-text-soft text-xs"><%= t.role %></p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== NĂNG LỰC / SỐ LIỆU ===================== -->
   <section class="py-16 md:py-24 bg-primary text-cream relative overflow-hidden">
     <div class="grain-pattern-dark absolute inset-0 opacity-30"></div>
@@ -217,6 +290,65 @@
 
       <div class="bg-cream rounded-3xl p-7 md:p-9 border border-border-soft shadow-soft" data-reveal data-delay="140">
         <%- include('partials/quote-form') %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="py-16 md:py-24 grain-pattern">
+    <div class="container mx-auto max-w-3xl">
+      <div class="text-center mb-14" data-reveal>
+        <span class="eyebrow">Câu hỏi thường gặp</span>
+        <h2 class="section-title">Bạn Đang Thắc Mắc Điều Gì?</h2>
+        <p class="text-text-soft">Giải đáp nhanh các câu hỏi phổ biến nhất từ khách hàng B2B &amp; B2C.</p>
+      </div>
+
+      <div class="space-y-3" data-reveal data-delay="100">
+        <% const faqs = [
+          {
+            q: 'Đặt hàng tối thiểu bao nhiêu kg? Có cần đặt cọc không?',
+            a: 'Không có số lượng tối thiểu — mua lẻ từ 5kg cũng giao. Đối với đơn sỉ (từ 100kg trở lên), chúng tôi báo giá riêng ưu đãi hơn. Thanh toán khi nhận hàng, không cần đặt cọc với khách hàng lần đầu.'
+          },
+          {
+            q: 'Giao hàng ở đâu? Có mất phí vận chuyển không?',
+            a: 'Giao miễn phí toàn bộ khu vực Đà Nẵng cho đơn từ 50kg trở lên. Đơn lẻ dưới 50kg tính phí vận chuyển theo khoảng cách. Các tỉnh lân cận (Quảng Nam, Huế) liên hệ để thỏa thuận cước.'
+          },
+          {
+            q: 'Gạo có giấy chứng nhận chất lượng không?',
+            a: 'Có đầy đủ: Chứng nhận VietGAP, Giấy chứng nhận cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm (ATVSTP). Xuất hóa đơn VAT cho khách hàng doanh nghiệp khi có yêu cầu.'
+          },
+          {
+            q: 'Nhà hàng/đại lý đặt hàng thường xuyên có chiết khấu không?',
+            a: 'Có chính sách chiết khấu lũy kế cho đối tác ký hợp đồng dài hạn: 3–8% tùy sản lượng hàng tháng. Liên hệ hotline 0935 999 087 để nhận báo giá sỉ và thỏa thuận hợp đồng cung ứng.'
+          },
+          {
+            q: 'Muốn xem trực tiếp kho gạo trước khi quyết định có được không?',
+            a: 'Hoàn toàn được và rất hoan nghênh! Xưởng mở cửa từ 7:00 – 19:00 mỗi ngày. Bạn có thể đến trực tiếp tại 111 Nguyễn Chí Diễu, Đà Nẵng hoặc nhắn Zalo trước để được đón tiếp chu đáo.'
+          },
+          {
+            q: 'Đặt hàng qua kênh nào nhanh nhất?',
+            a: 'Nhắn Zalo 0905 057 146 là nhanh nhất — thường phản hồi trong vài phút. Bạn cũng có thể gọi Hotline 0935 999 087 hoặc để lại form báo giá trên website, chúng tôi sẽ chủ động liên hệ lại ngay.'
+          }
+        ]; %>
+        <% faqs.forEach(function(faq, i){ %>
+          <div class="faq-item bg-white rounded-2xl border border-border-soft overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-text-main hover:text-primary transition-colors" aria-expanded="false">
+              <span><%= faq.q %></span>
+              <span class="faq-icon flex-shrink-0 w-8 h-8 grid place-items-center rounded-full bg-accent-soft text-primary transition-transform duration-300">+</span>
+            </button>
+            <div class="faq-body max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <p class="px-6 pb-5 text-text-soft leading-relaxed"><%= faq.a %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+
+      <div class="text-center mt-10" data-reveal data-delay="200">
+        <p class="text-text-soft mb-4">Còn câu hỏi khác? Nhắn trực tiếp cho chúng tôi!</p>
+        <a href="<%= site.zaloLink %>" target="_blank" rel="noopener"
+           class="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-cream font-semibold shadow hover:bg-primary-dark transition">
+          💬 Hỏi qua Zalo ngay
+        </a>
       </div>
     </div>
   </section>

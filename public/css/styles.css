@@ -551,6 +551,45 @@ body {
 [data-reveal].is-visible .rating-bar { width: var(--w, 0%); }
 
 /* ---------------------------------------------------------------------
+ *  FAQ ACCORDION
+ * ------------------------------------------------------------------- */
+.faq-item { transition: box-shadow 0.2s ease; }
+.faq-item:has(.faq-trigger[aria-expanded="true"]) {
+  box-shadow: 0 8px 24px -8px rgba(74, 47, 26, 0.2);
+  border-color: var(--accent);
+}
+.faq-trigger[aria-expanded="true"] .faq-icon { transform: rotate(45deg); background: var(--accent); color: var(--primary-dark); }
+.faq-body.is-open { max-height: 300px !important; }
+
+/* ---------------------------------------------------------------------
+ *  NÚT BACK-TO-TOP
+ * ------------------------------------------------------------------- */
+#back-to-top {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(74, 47, 26, 0.35);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 49;
+}
+#back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+#back-to-top:hover { background: var(--primary-dark); transform: translateY(-2px); }
+@media (min-width: 1024px) {
+  #back-to-top { bottom: 1.5rem; right: 5.5rem; }
+}
+
+/* ---------------------------------------------------------------------
  *  TÔN TRỌNG NGƯỜI DÙNG GIẢM CHUYỂN ĐỘNG
  * ------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {

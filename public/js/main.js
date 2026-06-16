@@ -263,7 +263,39 @@
     });
   }
 
-  /* ---------- 7. SLIDER ẢNH (trang chi tiết sản phẩm) ---------- */
+  /* ---------- 7. FAQ ACCORDION ---------- */
+  document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var body = item.querySelector('.faq-body');
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Đóng tất cả FAQ khác trước
+      document.querySelectorAll('.faq-trigger[aria-expanded="true"]').forEach(function (other) {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          var otherBody = other.closest('.faq-item').querySelector('.faq-body');
+          if (otherBody) otherBody.classList.remove('is-open');
+        }
+      });
+
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      body.classList.toggle('is-open', !isOpen);
+    });
+  });
+
+  /* ---------- 8. BACK TO TOP ---------- */
+  var backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- 9. SLIDER ẢNH (trang chi tiết sản phẩm) ---------- */
   document.querySelectorAll('[data-slider]').forEach(function (slider) {
     var track = slider.querySelector('[data-track]');
     if (!track) return;

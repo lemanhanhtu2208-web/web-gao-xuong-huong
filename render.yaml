@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: web-gao-xuong-huong
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: SITE_HOTLINE
+        value: 0935999087
+      - key: SITE_ZALO
+        value: 0905057146
+      - key: SITE_EMAIL
+        value: gaodanang@gmail.com
+      - key: SITE_ADDRESS
+        value: "111 Nguyễn Chí Diễu, Đà Nẵng"
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASSWORD
+        generateValue: true
