@@ -1,5 +1,5 @@
   <!-- Form nhận báo giá (AJAX -> POST /api/contacts) -->
-  <form id="quote-form" class="space-y-5" novalidate>
+  <form id="quote-form" class="space-y-7" novalidate>
     <!-- Honeypot chống bot (ẩn với người dùng) -->
     <div class="hidden" aria-hidden="true">
       <label>Để trống ô này
@@ -7,19 +7,17 @@
       </label>
     </div>
 
-    <div class="grid sm:grid-cols-2 gap-5">
+    <div class="grid sm:grid-cols-2 gap-7">
       <div>
-        <label for="full_name" class="block mb-1.5 font-medium text-text-main">Họ và tên <span class="text-red-500">*</span></label>
-        <input id="full_name" name="full_name" type="text" required autocomplete="name" placeholder="Nguyễn Văn A"
-               class="form-input" />
+        <label for="full_name" class="form-label">Họ và tên <span class="text-accent-dark">*</span></label>
+        <input id="full_name" name="full_name" type="text" required autocomplete="name" placeholder="Nguyễn Văn A" class="form-input" />
       </div>
       <div>
-        <label for="phone" class="block mb-1.5 font-medium text-text-main">Số điện thoại <span class="text-red-500">*</span></label>
-        <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="09xx xxx xxx"
-               class="form-input" />
+        <label for="phone" class="form-label">Số điện thoại <span class="text-accent-dark">*</span></label>
+        <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="09xx xxx xxx" class="form-input" />
       </div>
       <div>
-        <label for="customer_type" class="block mb-1.5 font-medium text-text-main">Loại khách hàng</label>
+        <label for="customer_type" class="form-label">Loại khách hàng</label>
         <select id="customer_type" name="customer_type" class="form-input">
           <option value="le">Mua lẻ (gia đình)</option>
           <option value="si">Mua sỉ</option>
@@ -29,7 +27,7 @@
         </select>
       </div>
       <div>
-        <label for="product_interest" class="block mb-1.5 font-medium text-text-main">Loại gạo quan tâm</label>
+        <label for="product_interest" class="form-label">Loại gạo quan tâm</label>
         <select id="product_interest" name="product_interest" class="form-input">
           <option value="">-- Chọn loại gạo --</option>
           <option value="Gạo đặc sản / Gạo thơm">Gạo đặc sản / Gạo thơm</option>
@@ -42,24 +40,23 @@
     </div>
 
     <div>
-      <label for="quantity" class="block mb-1.5 font-medium text-text-main">Số lượng dự kiến</label>
+      <label for="quantity" class="form-label">Số lượng dự kiến</label>
       <input id="quantity" name="quantity" type="text" placeholder="VD: 50kg / 2 tạ / 1 tấn mỗi tháng" class="form-input" />
     </div>
 
     <div>
-      <label for="message" class="block mb-1.5 font-medium text-text-main">Lời nhắn</label>
+      <label for="message" class="form-label">Lời nhắn</label>
       <textarea id="message" name="message" rows="3" placeholder="Yêu cầu thêm về quy cách đóng gói, thời gian giao hàng..." class="form-input"></textarea>
     </div>
 
-    <button type="submit" id="quote-submit"
-            class="btn-shine w-full inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-primary text-cream font-bold text-lg shadow hover:bg-primary-dark transition-colors">
+    <button type="submit" id="quote-submit" class="btn btn-primary btn-lg w-full">
       <span class="btn-label">Gửi Yêu Cầu Báo Giá</span>
-      <span class="btn-spinner hidden">
+      <span class="btn-spinner hidden inline-flex items-center gap-2">
         <svg class="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/></svg>
         Đang gửi...
       </span>
     </button>
 
-    <p id="form-msg" class="text-center font-medium hidden rounded-xl px-4 py-3"></p>
-    <p class="text-center text-xs text-text-soft">Thông tin của bạn được bảo mật &amp; chỉ dùng để liên hệ báo giá.</p>
+    <p id="form-msg" class="text-center font-medium hidden rounded-2xl px-4 py-3"></p>
+    <p class="text-center text-xs text-text-soft tracking-wide">Thông tin của bạn được bảo mật &amp; chỉ dùng để liên hệ báo giá.</p>
   </form>

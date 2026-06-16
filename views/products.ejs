@@ -3,63 +3,62 @@
 
 <main>
   <!-- ===================== PAGE HERO ===================== -->
-  <section class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('/img/san-pham-banner.jpg')"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="container mx-auto relative z-10 text-cream text-center py-20 md:py-28">
-      <nav class="breadcrumb" aria-label="breadcrumb">
-        <a href="/">Trang chủ</a> <span>/</span> <span>Sản phẩm</span>
+  <section class="hero pt-20 pb-12 md:pt-28 md:pb-16">
+    <div class="container mx-auto relative z-10 text-center">
+      <nav class="breadcrumb centered mb-6 !text-text-soft" aria-label="breadcrumb">
+        <a href="/" class="hover:text-accent-dark">Trang chủ</a> <span>/</span> <span>Sản phẩm</span>
       </nav>
-      <h1 class="hero-fade font-serif text-4xl md:text-5xl font-extrabold text-shadow" style="--d:.1s">5 Dòng Gạo Chủ Lực Của Xướng Hương</h1>
-      <p class="hero-fade mt-4 text-cream/90 max-w-2xl mx-auto text-shadow" style="--d:.25s">Từ bữa cơm gia đình đến bếp ăn nhà hàng – luôn có lựa chọn phù hợp với mức giá tận gốc.</p>
+      <span class="hero-fade eyebrow centered" style="--d:.05s">Danh mục</span>
+      <h1 class="hero-fade display !text-[clamp(2.6rem,6vw,4.5rem)]" style="--d:.12s">Năm dòng gạo chủ lực</h1>
+      <p class="hero-fade lead measure mx-auto mt-6" style="--d:.25s">Từ bữa cơm gia đình đến bếp ăn nhà hàng — luôn có lựa chọn phù hợp với mức giá tận gốc.</p>
     </div>
   </section>
 
-  <!-- ===================== LỜI DẪN + GIÁ ===================== -->
-  <section class="py-12 bg-white border-b border-border-soft">
-    <div class="container mx-auto grid md:grid-cols-3 gap-6 text-center">
-      <div class="flex items-center justify-center gap-3" data-reveal><span class="text-3xl">💰</span><p class="text-text-soft text-sm text-left">Giá tận xưởng,<br /><strong class="text-primary">không qua trung gian</strong></p></div>
-      <div class="flex items-center justify-center gap-3" data-reveal data-delay="100"><span class="text-3xl">📦</span><p class="text-text-soft text-sm text-left">Đóng gói linh hoạt<br /><strong class="text-primary">5kg · 10kg · 25kg · 50kg</strong></p></div>
-      <div class="flex items-center justify-center gap-3" data-reveal data-delay="200"><span class="text-3xl">🚚</span><p class="text-text-soft text-sm text-left">Giao hàng tận nơi<br /><strong class="text-primary">khắp Đà Nẵng</strong></p></div>
+  <!-- ===================== 3 CAM KẾT NHANH ===================== -->
+  <section class="pb-4">
+    <div class="container mx-auto">
+      <div class="glass-strong grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[color:var(--glass-line-soft)] overflow-hidden">
+        <div class="flex items-center gap-4 p-7" data-reveal><span class="icon-line">💰</span><p class="text-text-soft font-light text-sm">Giá tận xưởng,<br /><strong>không qua trung gian</strong></p></div>
+        <div class="flex items-center gap-4 p-7" data-reveal data-delay="100"><span class="icon-line">📦</span><p class="text-text-soft font-light text-sm">Đóng gói linh hoạt<br /><strong>5 · 10 · 25 · 50kg</strong></p></div>
+        <div class="flex items-center gap-4 p-7" data-reveal data-delay="200"><span class="icon-line">🚚</span><p class="text-text-soft font-light text-sm">Giao hàng tận nơi<br /><strong>khắp Đà Nẵng</strong></p></div>
+      </div>
     </div>
   </section>
 
   <!-- ===================== LƯỚI SẢN PHẨM ===================== -->
-  <section class="py-16 md:py-24 grain-pattern">
+  <section class="section-tight">
     <div class="container mx-auto">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <% categories.forEach(function(cat, i){ %>
-          <article class="product-card card-hover bg-white rounded-2xl overflow-hidden border border-border-soft flex flex-col" data-reveal data-delay="<%= (i%3)*100 %>">
-            <a href="/san-pham/<%= cat.slug %>" class="block relative h-56 overflow-hidden">
-              <img src="<%= cat.image %>" alt="<%= cat.name %>" loading="lazy"
-                   class="product-img w-full h-full object-cover" onerror="this.src='/img/placeholder.svg'" />
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 text-primary text-xs font-semibold backdrop-blur"><%= cat.icon %> <%= cat.shortName %></span>
+          <article class="glass glass-card overflow-hidden flex flex-col" data-reveal data-delay="<%= (i%3)*100 %>">
+            <a href="/san-pham/<%= cat.slug %>" class="media media-zoom block h-60 !rounded-none">
+              <img src="<%= cat.image %>" alt="<%= cat.name %>" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full glass-strong text-primary-dark text-xs font-medium"><%= cat.icon %> <%= cat.shortName %></span>
             </a>
-            <div class="p-6 flex flex-col flex-1">
-              <h2 class="font-bold text-xl text-primary mb-2"><a href="/san-pham/<%= cat.slug %>" class="hover:text-secondary transition"><%= cat.name %></a></h2>
-              <p class="text-text-soft text-sm mb-3 flex-1"><%= cat.tagline %></p>
-              <div class="flex flex-wrap gap-1.5 mb-4">
+            <div class="p-7 flex flex-col flex-1">
+              <h2 class="text-2xl text-primary-dark mb-2"><a href="/san-pham/<%= cat.slug %>" class="hover:text-accent-dark transition"><%= cat.name %></a></h2>
+              <p class="text-text-soft font-light text-[0.95rem] mb-4 flex-1 leading-relaxed"><%= cat.tagline %></p>
+              <div class="flex flex-wrap gap-2 mb-5">
                 <% cat.highlights.forEach(function(h){ %>
-                  <span class="px-2.5 py-1 rounded-full bg-accent-soft text-primary-dark text-xs font-medium"><%= h %></span>
+                  <span class="px-3 py-1 rounded-full border border-[color:var(--glass-line-soft)] text-primary-dark text-xs"><%= h %></span>
                 <% }); %>
               </div>
-              <p class="text-xs text-text-soft mb-4"><strong>Quy cách:</strong> <%= cat.packaging.join(' · ') %></p>
-              <div class="mt-auto flex gap-2">
-                <a href="/san-pham/<%= cat.slug %>" class="flex-1 text-center px-4 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-cream transition">Chi tiết</a>
-                <a href="/lien-he?sp=<%= cat.slug %>" class="flex-1 text-center px-4 py-3 rounded-full bg-accent text-primary-dark font-semibold hover:brightness-105 transition">Báo giá</a>
+              <p class="text-xs text-text-soft mb-5 tracking-wide"><span class="uppercase">Quy cách</span> · <%= cat.packaging.join(' · ') %></p>
+              <div class="mt-auto flex gap-3">
+                <a href="/san-pham/<%= cat.slug %>" class="btn btn-ghost flex-1 !py-3 text-sm">Chi tiết</a>
+                <a href="/lien-he?sp=<%= cat.slug %>" class="btn btn-accent flex-1 !py-3 text-sm">Báo giá</a>
               </div>
             </div>
           </article>
         <% }); %>
       </div>
 
-      <!-- Lưu ý giá -->
-      <div class="mt-12 bg-white rounded-2xl border border-border-soft p-6 md:p-8 text-center max-w-3xl mx-auto" data-reveal>
-        <p class="text-text-soft">
-          <span class="text-xl">💡</span> Tất cả sản phẩm <strong class="text-primary">không niêm yết giá công khai</strong>.
-          Vui lòng bấm <strong>"Liên hệ nhận báo giá"</strong>, gọi
-          <a href="tel:<%= site.hotline %>" class="text-primary font-semibold underline-offset-2 hover:underline">Hotline <%= site.hotlinePretty %></a>
-          hoặc nhắn <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="text-zalo font-semibold underline-offset-2 hover:underline">Zalo <%= site.zaloPretty %></a>
+      <div class="glass mt-12 p-8 md:p-10 text-center max-w-3xl mx-auto" data-reveal>
+        <p class="text-text-soft font-light leading-relaxed">
+          💡 Tất cả sản phẩm <strong>không niêm yết giá công khai</strong>.
+          Vui lòng bấm <strong>"Báo giá"</strong>, gọi
+          <a href="tel:<%= site.hotline %>" class="text-primary-dark font-medium underline-offset-4 hover:underline">Hotline <%= site.hotlinePretty %></a>
+          hoặc nhắn <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="text-zalo font-medium underline-offset-4 hover:underline">Zalo <%= site.zaloPretty %></a>
           để nhận mức giá tận gốc tốt nhất theo số lượng.
         </p>
       </div>

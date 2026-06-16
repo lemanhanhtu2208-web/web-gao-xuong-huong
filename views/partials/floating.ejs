@@ -16,14 +16,14 @@
   <button id="back-to-top" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
 
   <!-- ===================== STICKY BAR (MOBILE) ===================== -->
-  <div class="lg:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-3 bg-white border-t border-border-soft shadow-[0_-4px_20px_rgba(0,0,0,0.12)]">
-    <a href="tel:<%= site.hotline %>" class="flex flex-col items-center justify-center gap-0.5 py-2.5 text-primary font-semibold text-sm">
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-3 glass-strong !rounded-none border-t border-[color:var(--glass-line)]">
+    <a href="tel:<%= site.hotline %>" class="flex flex-col items-center justify-center gap-0.5 py-3 text-primary-dark font-medium text-sm">
       <span class="text-xl">📞</span> Gọi ngay
     </a>
-    <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-0.5 py-2.5 text-zalo font-semibold text-sm border-x border-border-soft">
+    <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-0.5 py-3 text-zalo font-medium text-sm border-x border-[color:var(--glass-line-soft)]">
       <span class="text-xl">💬</span> Chat Zalo
     </a>
-    <a href="/lien-he" class="flex flex-col items-center justify-center gap-0.5 py-2.5 text-secondary font-semibold text-sm">
+    <a href="/lien-he" class="flex flex-col items-center justify-center gap-0.5 py-3 text-secondary font-medium text-sm">
       <span class="text-xl">📝</span> Báo giá
     </a>
   </div>

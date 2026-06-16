@@ -7,7 +7,9 @@ hiển thị (không cần sửa code). Khi thiếu ảnh, site tự dùng `plac
 
 | Tên file | Vị trí dùng | Gợi ý kích thước |
 |---|---|---|
-| `hero.jpg` | Banner lớn trang chủ | 1920×1080 (ngang) |
+| `canh-dong.mp4` | **Nền video cánh đồng lúa (toàn site)** — glass hấp thụ màu | 1920×1080, 8–15s, loop, nén < 5MB |
+| `canh-dong-poster.jpg` | Ảnh poster hiện khi video đang tải | 1920×1080 |
+| `hero.jpg` | (Tùy chọn) ảnh dự phòng | 1920×1080 (ngang) |
 | `kho-gao.jpg` | Khối giới thiệu (trang chủ) + hero trang Giới thiệu | 1000×600 |
 | `xuong-gao.jpg` | Ảnh xưởng (trang Giới thiệu) | 1000×900 |
 | `kho-1.jpg`, `kho-2.jpg` | Lưới chứng nhận/kho (trang Giới thiệu) | 600×400 |

@@ -54,13 +54,7 @@
   var header = document.getElementById('site-header');
   if (header) {
     var onScroll = function () {
-      if (window.scrollY > 30) {
-        header.classList.add('shadow-md', 'py-1', 'bg-cream/95');
-        header.classList.remove('py-3');
-      } else {
-        header.classList.remove('shadow-md', 'py-1', 'bg-cream/95');
-        header.classList.add('py-3');
-      }
+      header.classList.toggle('is-scrolled', window.scrollY > 30);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

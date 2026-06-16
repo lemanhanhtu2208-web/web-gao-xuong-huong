@@ -11,11 +11,12 @@ module.exports = {
     'py-3',
     'bg-cream/95',
     'is-open',
+    'is-scrolled',
   ],
   theme: {
     container: {
       center: true,
-      padding: { DEFAULT: '1rem', lg: '2rem' },
+      padding: { DEFAULT: '1.5rem', lg: '2.5rem' },
     },
     extend: {
       colors: {
@@ -27,14 +28,20 @@ module.exports = {
         'accent-soft': '#E8D9C0',
         cream: '#FAF6F0',
         'cream-2': '#F3EADD',
+        ink: '#241813',
+        porcelain: '#F7F2EA',
         'text-main': '#2E2117',
         'text-soft': '#6F6256',
         'border-soft': '#DDD0BE',
         zalo: '#2FAE60',
       },
       fontFamily: {
-        sans: ['"Be Vietnam Pro"', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
+        sans: ['Inter', '"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
+        display: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
+        serif: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
+      },
+      letterSpacing: {
+        tightest: '-0.03em',
       },
       boxShadow: {
         soft: '0 18px 40px -12px rgba(74,47,26,.22)',

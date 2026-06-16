@@ -3,69 +3,54 @@
 
 <main>
   <!-- ===================== HERO ===================== -->
-  <section class="relative min-h-[92vh] flex items-center overflow-hidden">
-    <div class="hero-bg absolute inset-0 bg-cover bg-center" style="background-image:url('/img/hero.jpg');"></div>
-    <div class="absolute inset-0 hero-overlay"></div>
-    <!-- Hạt gạo trang trí bay nhẹ -->
-    <span class="grain-float" style="top:18%;left:8%"></span>
-    <span class="grain-float" style="top:62%;left:14%;animation-delay:1.2s"></span>
-    <span class="grain-float" style="top:30%;right:12%;animation-delay:2.1s"></span>
-    <span class="grain-float" style="top:74%;right:20%;animation-delay:.6s"></span>
+  <section class="hero relative min-h-[92vh] flex items-center">
+    <span class="grain-float" style="top:20%;left:9%"></span>
+    <span class="grain-float" style="top:64%;left:15%;animation-delay:1.2s"></span>
+    <span class="grain-float" style="top:32%;right:13%;animation-delay:2.1s"></span>
+    <span class="grain-float" style="top:74%;right:22%;animation-delay:.6s"></span>
 
-    <div class="container mx-auto relative z-10 py-24">
-      <div class="max-w-3xl text-cream">
-        <span class="hero-fade inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-accent/20 border border-accent/40 text-accent text-sm font-semibold backdrop-blur-sm" style="--d:.1s">
-          ✔ Chứng nhận VietGAP · ✔ An toàn thực phẩm · ✔ Giao tận nơi
-        </span>
-        <h1 class="hero-fade font-serif text-4xl md:text-6xl font-extrabold leading-tight text-shadow" style="--d:.25s">
-          Gạo Sạch Tận Gốc<br />
-          <span class="text-accent">Xưởng Gạo Xướng Hương Đà Nẵng</span>
+    <div class="container mx-auto relative z-10 py-28">
+      <div class="measure">
+        <span class="hero-fade eyebrow" style="--d:.1s">Xưởng gạo · Đà Nẵng · Từ 2014</span>
+        <h1 class="hero-fade display" style="--d:.25s">
+          Hạt gạo sạch,<br /><em class="text-accent-dark">gửi trọn hương quê.</em>
         </h1>
-        <p class="hero-fade mt-6 text-lg md:text-xl text-cream/90 max-w-2xl text-shadow" style="--d:.4s">
-          Nguồn gạo dồi dào cho nhà hàng, quán ăn và mọi gia đình. Giá tận xưởng,
-          không qua trung gian, giao hàng tận nơi khắp Đà Nẵng.
+        <p class="hero-fade lead mt-8 max-w-xl" style="--d:.4s">
+          Nguồn gạo dồi dào cho nhà hàng, quán ăn và mọi gia đình — giá tận xưởng,
+          không qua trung gian, giao tận nơi khắp Đà Nẵng.
         </p>
-        <div class="hero-fade mt-9 flex flex-col sm:flex-row gap-4" style="--d:.55s">
-          <a href="/lien-he" class="btn-shine inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-accent text-primary-dark font-bold text-lg shadow-lg hover:-translate-y-0.5 transition-transform">
-            📞 Nhận Báo Giá Ngay
-          </a>
-          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-zalo text-white font-bold text-lg shadow-lg hover:-translate-y-0.5 transition-transform">
-            💬 Tư Vấn Qua Zalo
-          </a>
+        <div class="hero-fade mt-10 flex flex-col sm:flex-row gap-4" style="--d:.55s">
+          <a href="/lien-he" class="btn btn-primary btn-lg">Nhận báo giá ngay</a>
+          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">💬 Tư vấn qua Zalo</a>
         </div>
-        <p class="hero-fade mt-6 text-cream/75 text-sm" style="--d:.7s">
-          Hơn một thập kỷ gắn bó với hạt gạo Việt — từng hạt đều được tuyển chọn kỹ lưỡng,
-          bảo quản trong kho xưởng đạt chuẩn.
-        </p>
       </div>
     </div>
 
-    <!-- Mũi tên cuộn xuống -->
-    <a href="#cam-ket" class="hidden md:flex flex-col items-center gap-1 absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-cream/80 hover:text-accent transition">
-      <span class="text-xs uppercase tracking-widest">Cuộn xuống</span>
-      <span class="scroll-arrow text-2xl">⌄</span>
+    <a href="#cam-ket" class="hidden md:flex flex-col items-center gap-2 absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-text-soft hover:text-accent-dark transition">
+      <span class="text-[0.65rem] uppercase tracking-[0.3em]">Cuộn xuống</span>
+      <span class="scroll-cue text-xl">↓</span>
     </a>
   </section>
 
   <!-- ===================== USP / CAM KẾT ===================== -->
-  <section id="cam-ket" class="py-16 md:py-24 grain-pattern">
+  <section id="cam-ket" class="section">
     <div class="container mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
-        <span class="eyebrow">Cam kết của Xướng Hương</span>
-        <h2 class="section-title">Vì Sao Hàng Trăm Nhà Hàng &amp; Gia Đình Tin Chọn Xướng Hương?</h2>
+      <div class="measure mx-auto text-center mb-20" data-reveal>
+        <span class="eyebrow centered">Cam kết của Xướng Hương</span>
+        <h2 class="section-title">Vì sao hàng trăm nhà hàng &amp; gia đình tin chọn?</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-6">
         <% const usp = [
-          { icon:'💰', title:'Giá Tận Xưởng – Không Qua Trung Gian', text:'Là xưởng sản xuất và phân phối trực tiếp, chúng tôi cắt bỏ mọi khâu trung gian để mang đến mức giá tốt nhất. Bạn mua tận gốc, tiết kiệm tối đa mà chất lượng vẫn vẹn nguyên.' },
-          { icon:'🏭', title:'Nguồn Hàng Dồi Dào – Cung Ứng Số Lượng Lớn', text:'Hệ thống kho bãi quy mô lớn cùng nguồn nguyên liệu ổn định giúp đáp ứng mọi đơn hàng, từ vài ký cho gia đình đến hàng tấn cho nhà hàng — luôn sẵn hàng, giao đúng hẹn.' },
-          { icon:'🚚', title:'Giao Hàng Tận Nơi Khắp Đà Nẵng', text:'Đội ngũ vận chuyển riêng giao gạo tận cửa hàng, tận bếp, tận nhà bạn nhanh chóng, đúng giờ. Đặt hàng hôm nay, nhận gạo thơm dẻo ngay — không lo nặng nhọc, không lo trễ hẹn.' }
+          { icon:'01', title:'Giá tận xưởng', text:'Là xưởng sản xuất và phân phối trực tiếp, chúng tôi cắt bỏ mọi khâu trung gian — bạn mua tận gốc, tiết kiệm tối đa mà chất lượng vẫn vẹn nguyên.' },
+          { icon:'02', title:'Nguồn hàng dồi dào', text:'Hệ thống kho bãi quy mô lớn cùng nguồn nguyên liệu ổn định đáp ứng mọi đơn hàng — từ vài ký cho gia đình đến hàng tấn cho nhà hàng.' },
+          { icon:'03', title:'Giao tận nơi', text:'Đội ngũ vận chuyển riêng giao gạo tận cửa hàng, tận bếp, tận nhà bạn — nhanh chóng, đúng giờ, không lo nặng nhọc.' }
         ]; %>
         <% usp.forEach(function(u, i){ %>
-          <div class="card-hover bg-white rounded-2xl p-8 border border-border-soft text-center" data-reveal data-delay="<%= i*120 %>">
-            <div class="mx-auto w-16 h-16 grid place-items-center rounded-2xl bg-accent-soft text-3xl mb-5 icon-pop"><%= u.icon %></div>
-            <h3 class="font-bold text-xl text-primary mb-3"><%= u.title %></h3>
-            <p class="text-text-soft leading-relaxed"><%= u.text %></p>
+          <div class="glass glass-card p-9" data-reveal data-delay="<%= i*120 %>">
+            <span class="font-display text-3xl text-accent-dark font-semibold"><%= u.icon %></span>
+            <h3 class="text-2xl text-primary-dark mt-4 mb-3"><%= u.title %></h3>
+            <p class="text-text-soft font-light leading-relaxed"><%= u.text %></p>
           </div>
         <% }); %>
       </div>
@@ -73,150 +58,103 @@
   </section>
 
   <!-- ===================== GIỚI THIỆU NGẮN ===================== -->
-  <section class="py-16 md:py-24 bg-white overflow-hidden">
-    <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+  <section class="section-tight">
+    <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
       <div class="relative" data-reveal>
-        <div class="img-frame">
-          <img src="/img/kho-gao.jpg" alt="Kho gạo xưởng Xướng Hương Đà Nẵng" loading="lazy"
-               class="rounded-3xl shadow-soft w-full object-cover h-[300px] md:h-[440px]" onerror="this.src='/img/placeholder.svg'" />
+        <div class="media media-zoom h-[340px] md:h-[480px]">
+          <img src="/img/kho-gao.jpg" alt="Kho gạo xưởng Xướng Hương Đà Nẵng" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
         </div>
-        <div class="absolute -bottom-6 -right-2 md:right-6 bg-primary text-cream rounded-2xl px-6 py-5 shadow-lg">
-          <span class="block font-serif text-3xl font-extrabold text-accent">10+</span>
-          <span class="text-sm">năm kinh nghiệm<br />ngành gạo</span>
+        <div class="glass-strong absolute -bottom-8 -right-2 md:right-8 px-7 py-6 !rounded-2xl text-center">
+          <span class="block font-display text-4xl font-semibold text-accent-dark">10+</span>
+          <span class="text-sm text-text-soft">năm gắn bó<br />với hạt gạo Việt</span>
         </div>
       </div>
       <div data-reveal data-delay="120">
         <span class="eyebrow">Về chúng tôi</span>
-        <h2 class="section-title text-left">Câu Chuyện Gạo Xướng Hương – Hạt Gạo Sạch Tận Tâm</h2>
-        <p class="text-text-soft leading-relaxed mb-4">
+        <h2 class="section-title">Câu chuyện một hạt gạo tận tâm</h2>
+        <p class="text-text-soft font-light leading-relaxed mb-5 measure">
           Khởi đầu từ một cơ sở kinh doanh gạo nhỏ với mong muốn giản dị <em>"mang hạt gạo sạch,
           ngon đến từng mâm cơm"</em>, Xướng Hương đã không ngừng lớn mạnh để trở thành một trong
           những địa chỉ cung ứng gạo uy tín hàng đầu miền Trung.
         </p>
-        <p class="text-text-soft leading-relaxed mb-6">
-          Với hệ thống kho bãi quy mô lớn tại <%= site.address %> và liên kết trực tiếp với vùng
-          nguyên liệu, chúng tôi cắt bỏ hoàn toàn khâu trung gian — mang đến mức giá tận gốc tốt nhất
-          mà chất lượng vẫn vẹn nguyên.
-        </p>
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-start gap-3"><span class="check">✔</span><span><strong>Chứng nhận VietGAP</strong> – canh tác và kiểm soát chất lượng theo tiêu chuẩn.</span></li>
-          <li class="flex items-start gap-3"><span class="check">✔</span><span><strong>Giấy chứng nhận ATVSTP</strong> – cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm.</span></li>
-          <li class="flex items-start gap-3"><span class="check">✔</span><span><strong>Kho bãi khô ráo, thoáng mát</strong> – gạo giữ trọn độ thơm ngon, không ẩm mốc.</span></li>
+        <ul class="space-y-3.5 mb-9">
+          <li class="flex items-start gap-3"><span class="check">✦</span><span class="font-light"><strong>Chứng nhận VietGAP</strong> — kiểm soát chất lượng theo tiêu chuẩn.</span></li>
+          <li class="flex items-start gap-3"><span class="check">✦</span><span class="font-light"><strong>Giấy chứng nhận ATVSTP</strong> — đủ điều kiện An toàn Vệ sinh Thực phẩm.</span></li>
+          <li class="flex items-start gap-3"><span class="check">✦</span><span class="font-light"><strong>Kho bãi khô ráo, thoáng mát</strong> — gạo giữ trọn độ thơm, không ẩm mốc.</span></li>
         </ul>
-        <a href="/gioi-thieu" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-cream font-semibold shadow hover:bg-primary-dark transition group">
-          Tìm hiểu thêm về xưởng <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </a>
+        <a href="/gioi-thieu" class="link-arrow">Tìm hiểu thêm về xưởng <span>→</span></a>
       </div>
     </div>
   </section>
 
   <!-- ===================== DANH MỤC SẢN PHẨM ===================== -->
-  <section class="py-16 md:py-24 grain-pattern">
+  <section class="section">
     <div class="container mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
-        <span class="eyebrow">Sản phẩm</span>
-        <h2 class="section-title">5 Dòng Gạo Chủ Lực Của Xướng Hương</h2>
-        <p class="text-text-soft">
-          Dù bạn cần gạo thơm dẻo cho bữa cơm gia đình, gạo nở xốp cho quán cơm đông khách, hay gạo
-          lứt hữu cơ cho lối sống lành mạnh – Xướng Hương đều có lựa chọn phù hợp với mức giá tốt nhất.
+      <div class="measure mx-auto text-center mb-20" data-reveal>
+        <span class="eyebrow centered">Sản phẩm</span>
+        <h2 class="section-title">Năm dòng gạo chủ lực</h2>
+        <p class="lead">
+          Gạo thơm dẻo cho bữa cơm gia đình, gạo nở xốp cho quán cơm đông khách, hay gạo
+          lứt hữu cơ cho lối sống lành mạnh — Xướng Hương đều có lựa chọn phù hợp.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <% categories.forEach(function(cat, i){ %>
-          <article class="product-card card-hover bg-white rounded-2xl overflow-hidden border border-border-soft flex flex-col" data-reveal data-delay="<%= (i%3)*100 %>">
-            <a href="/san-pham/<%= cat.slug %>" class="block relative h-52 overflow-hidden">
-              <img src="<%= cat.image %>" alt="<%= cat.name %>" loading="lazy"
-                   class="product-img w-full h-full object-cover" onerror="this.src='/img/placeholder.svg'" />
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 text-primary text-xs font-semibold backdrop-blur"><%= cat.icon %> <%= cat.shortName %></span>
+          <article class="glass glass-card overflow-hidden flex flex-col" data-reveal data-delay="<%= (i%3)*100 %>">
+            <a href="/san-pham/<%= cat.slug %>" class="media media-zoom block h-56 !rounded-none">
+              <img src="<%= cat.image %>" alt="<%= cat.name %>" loading="lazy" onerror="this.src='/img/placeholder.svg'" />
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full glass-strong text-primary-dark text-xs font-medium"><%= cat.icon %> <%= cat.shortName %></span>
             </a>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl text-primary mb-2"><a href="/san-pham/<%= cat.slug %>" class="hover:text-secondary transition"><%= cat.name %></a></h3>
-              <p class="text-text-soft text-sm mb-4 flex-1"><%= cat.tagline %></p>
-              <p class="text-xs text-text-soft mb-4"><strong>Quy cách:</strong> <%= cat.packaging.join(' · ') %></p>
-              <div class="mt-auto flex gap-2">
-                <a href="/san-pham/<%= cat.slug %>" class="flex-1 text-center px-4 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-cream transition">Chi tiết</a>
-                <a href="/lien-he?sp=<%= cat.slug %>" class="flex-1 text-center px-4 py-3 rounded-full bg-accent text-primary-dark font-semibold hover:brightness-105 transition">Báo giá</a>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="text-2xl text-primary-dark mb-2"><a href="/san-pham/<%= cat.slug %>" class="hover:text-accent-dark transition"><%= cat.name %></a></h3>
+              <p class="text-text-soft font-light text-[0.95rem] mb-5 flex-1 leading-relaxed"><%= cat.tagline %></p>
+              <p class="text-xs text-text-soft mb-5 tracking-wide"><span class="uppercase">Quy cách</span> · <%= cat.packaging.join(' · ') %></p>
+              <div class="mt-auto flex gap-3">
+                <a href="/san-pham/<%= cat.slug %>" class="btn btn-ghost flex-1 !py-3 text-sm">Chi tiết</a>
+                <a href="/lien-he?sp=<%= cat.slug %>" class="btn btn-accent flex-1 !py-3 text-sm">Báo giá</a>
               </div>
             </div>
           </article>
         <% }); %>
 
-        <!-- Card CTA -->
-        <article class="rounded-2xl overflow-hidden bg-primary text-cream flex flex-col justify-center items-center text-center p-8" data-reveal data-delay="200">
-          <div class="text-5xl mb-4 icon-pop">🌾</div>
-          <h3 class="font-serif text-2xl font-bold mb-3">Cần loại gạo khác?</h3>
-          <p class="text-cream/85 mb-6">Liên hệ ngay để được tư vấn loại gạo phù hợp nhất với nhu cầu của bạn.</p>
-          <a href="tel:<%= site.hotline %>" class="btn-shine px-7 py-3.5 rounded-full bg-accent text-primary-dark font-bold hover:-translate-y-0.5 transition-transform">📞 <%= site.hotlinePretty %></a>
+        <article class="glass-dark glass-card flex flex-col justify-center items-center text-center p-10" data-reveal data-delay="200">
+          <div class="text-4xl mb-5">🌾</div>
+          <h3 class="font-display text-3xl font-semibold text-cream mb-3">Cần loại gạo khác?</h3>
+          <p class="text-cream/80 font-light mb-8">Liên hệ để được tư vấn loại gạo phù hợp nhất với nhu cầu của bạn.</p>
+          <a href="tel:<%= site.hotline %>" class="btn btn-accent">📞 <%= site.hotlinePretty %></a>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ===================== ĐÁNH GIÁ KHÁCH HÀNG ===================== -->
-  <section class="py-16 md:py-24 bg-white overflow-hidden">
+  <section class="section">
     <div class="container mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
-        <span class="eyebrow">Khách hàng nói gì</span>
-        <h2 class="section-title">Hàng Trăm Nhà Hàng &amp; Gia Đình Đã Tin Dùng</h2>
-        <p class="text-text-soft">Những phản hồi thực tế từ khách hàng B2B &amp; B2C của Xướng Hương tại Đà Nẵng.</p>
+      <div class="measure mx-auto text-center mb-20" data-reveal>
+        <span class="eyebrow centered">Khách hàng nói gì</span>
+        <h2 class="section-title">Hàng trăm nhà hàng &amp; gia đình đã tin dùng</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <% const testimonials = [
-          {
-            name: 'Chị Nguyễn Thị Hoa',
-            role: 'Bếp trưởng — Nhà hàng Phú Xuân',
-            avatar: '👩‍🍳',
-            stars: 5,
-            text: 'Xướng Hương giao gạo đúng hẹn, chất lượng đồng đều từ lô này sang lô khác. Gạo ST25 thơm chuẩn, cơm nấu ra hạt tách rời đẹp lắm. Nhà hàng chúng tôi dùng gần 2 năm rồi, chưa bao giờ phải phàn nàn về chất lượng.'
-          },
-          {
-            name: 'Anh Trần Văn Minh',
-            role: 'Chủ quán cơm bình dân — Q. Thanh Khê',
-            avatar: '👨‍💼',
-            stars: 5,
-            text: 'Lấy gạo nở xốp của Xướng Hương từ hồi mới mở quán. Một ký gạo nấu ra được nhiều cơm, giá thành rẻ hơn hẳn chỗ cũ. Quan trọng là chốt đơn qua Zalo, sáng hôm sau là có giao tận nơi, tiện lắm!'
-          },
-          {
-            name: 'Chị Lê Thị Thu',
-            role: 'Giám đốc — Cty Suất Ăn Công Nghiệp Miền Trung',
-            avatar: '👩‍💼',
-            stars: 5,
-            text: 'Chúng tôi cần gạo số lượng lớn mỗi tháng. Xướng Hương luôn đảm bảo nguồn hàng ổn định, kể cả vào dịp lễ tết. Hóa đơn VAT đầy đủ, chứng nhận VietGAP rõ ràng — đúng yêu cầu đối tác B2B.'
-          },
-          {
-            name: 'Anh Phạm Quang Hùng',
-            role: 'Khách hàng cá nhân — P. Hải Châu',
-            avatar: '👨‍👩‍👧',
-            stars: 5,
-            text: 'Mua gạo lứt huyết rồng cho cả nhà ăn. Hỏi tư vấn qua Zalo, nhân viên giải thích rất tận tâm, không hề bán ép. Gạo giao đến tay sạch sẽ, bao bì chắc chắn. Gia đình tôi sẽ tiếp tục ủng hộ!'
-          },
-          {
-            name: 'Chú Ngô Thanh Tâm',
-            role: 'Chủ đại lý gạo — Q. Ngũ Hành Sơn',
-            avatar: '🧑‍🦳',
-            stars: 5,
-            text: 'Làm đại lý cho Xướng Hương được 3 năm. Hàng luôn đúng trọng lượng, giá cạnh tranh, chiết khấu hợp lý. Khi cần hàng gấp gọi một cái là xưởng sắp xe giao ngay. Đây là đối tác đáng tin để lâu dài.'
-          },
-          {
-            name: 'Chị Võ Thị Ánh Tuyết',
-            role: 'Quản lý bếp — Trường mầm non tư thục',
-            avatar: '👩‍🏫',
-            stars: 5,
-            text: 'Trường dùng gạo Xướng Hương nấu ăn cho các bé. Điều tôi yên tâm nhất là có đầy đủ giấy chứng nhận an toàn thực phẩm — phụ huynh hỏi là xuất được ngay. Gạo thơm, cơm ngon, các con ăn được nhiều hơn!'
-          }
+          { name:'Chị Nguyễn Thị Hoa', role:'Bếp trưởng — Nhà hàng Phú Xuân', avatar:'👩‍🍳', stars:5, text:'Xướng Hương giao gạo đúng hẹn, chất lượng đồng đều từ lô này sang lô khác. Gạo ST25 thơm chuẩn, cơm nấu ra hạt tách rời đẹp lắm. Dùng gần 2 năm rồi, chưa bao giờ phải phàn nàn.' },
+          { name:'Anh Trần Văn Minh', role:'Chủ quán cơm — Q. Thanh Khê', avatar:'👨‍💼', stars:5, text:'Lấy gạo nở xốp từ hồi mới mở quán. Một ký gạo nấu ra được nhiều cơm, giá rẻ hơn hẳn chỗ cũ. Chốt đơn qua Zalo, sáng hôm sau là có giao tận nơi, tiện lắm!' },
+          { name:'Chị Lê Thị Thu', role:'Giám đốc — Cty Suất Ăn Miền Trung', avatar:'👩‍💼', stars:5, text:'Chúng tôi cần gạo số lượng lớn mỗi tháng. Xướng Hương luôn đảm bảo nguồn hàng ổn định kể cả dịp lễ tết. Hóa đơn VAT đầy đủ, chứng nhận VietGAP rõ ràng — đúng yêu cầu B2B.' },
+          { name:'Anh Phạm Quang Hùng', role:'Khách hàng cá nhân — P. Hải Châu', avatar:'👨‍👩‍👧', stars:5, text:'Mua gạo lứt huyết rồng cho cả nhà ăn. Hỏi tư vấn qua Zalo, nhân viên giải thích rất tận tâm, không hề bán ép. Gạo giao đến sạch sẽ, bao bì chắc chắn.' },
+          { name:'Chú Ngô Thanh Tâm', role:'Chủ đại lý gạo — Q. Ngũ Hành Sơn', avatar:'🧑‍🦳', stars:5, text:'Làm đại lý cho Xướng Hương được 3 năm. Hàng luôn đúng trọng lượng, giá cạnh tranh, chiết khấu hợp lý. Cần hàng gấp gọi một cái là xưởng sắp xe giao ngay.' },
+          { name:'Chị Võ Thị Ánh Tuyết', role:'Quản lý bếp — Trường mầm non', avatar:'👩‍🏫', stars:5, text:'Trường dùng gạo Xướng Hương nấu cho các bé. Yên tâm nhất là có đầy đủ giấy chứng nhận an toàn thực phẩm — phụ huynh hỏi là xuất được ngay. Cơm ngon, các con ăn nhiều hơn!' }
         ]; %>
         <% testimonials.forEach(function(t, i){ %>
-          <div class="bg-cream rounded-2xl p-7 border border-border-soft flex flex-col card-hover" data-reveal data-delay="<%= (i%3)*100 %>">
-            <div class="flex gap-1 mb-4 text-accent text-lg">
+          <div class="glass glass-card p-8 flex flex-col" data-reveal data-delay="<%= (i%3)*100 %>">
+            <div class="flex gap-1 mb-5 text-accent text-sm tracking-widest">
               <% for(var s=0;s<t.stars;s++){ %><span>★</span><% } %>
             </div>
-            <p class="text-text-soft leading-relaxed flex-1 italic mb-6">"<%= t.text %>"</p>
-            <div class="flex items-center gap-3 pt-4 border-t border-border-soft">
-              <span class="w-11 h-11 grid place-items-center rounded-full bg-accent-soft text-2xl flex-shrink-0"><%= t.avatar %></span>
+            <p class="text-text-main font-light italic leading-relaxed flex-1 mb-7">"<%= t.text %>"</p>
+            <div class="flex items-center gap-3 pt-5 border-t border-[color:var(--glass-line-soft)]">
+              <span class="icon-line !w-11 !h-11 text-xl"><%= t.avatar %></span>
               <div>
-                <p class="font-bold text-text-main text-sm"><%= t.name %></p>
+                <p class="font-medium text-primary-dark text-sm"><%= t.name %></p>
                 <p class="text-text-soft text-xs"><%= t.role %></p>
               </div>
             </div>
@@ -227,140 +165,124 @@
   </section>
 
   <!-- ===================== NĂNG LỰC / SỐ LIỆU ===================== -->
-  <section class="py-16 md:py-24 bg-primary text-cream relative overflow-hidden">
-    <div class="grain-pattern-dark absolute inset-0 opacity-30"></div>
-    <div class="container mx-auto relative z-10">
-      <div class="text-center max-w-2xl mx-auto mb-14" data-reveal>
-        <span class="eyebrow text-accent">Năng lực cung ứng</span>
-        <h2 class="section-title text-cream">Năng Lực Của Một Xưởng Gạo Lớn Tại Đà Nẵng</h2>
-      </div>
+  <section class="section">
+    <div class="container mx-auto">
+      <div class="glass-dark p-10 md:p-16">
+        <div class="measure mx-auto text-center mb-16" data-reveal>
+          <span class="eyebrow centered on-dark">Năng lực cung ứng</span>
+          <h2 class="section-title text-cream">Quy mô của một xưởng gạo lớn tại Đà Nẵng</h2>
+        </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-        <% site.stats.forEach(function(s, i){ %>
-          <div class="text-center bg-white/5 rounded-2xl py-8 border border-white/10 hover:bg-white/10 transition" data-reveal data-delay="<%= i*90 %>">
-            <span class="counter block font-serif text-4xl md:text-5xl font-extrabold text-accent" data-target="<%= s.value %>" data-suffix="<%= s.suffix %>">0<%= s.suffix %></span>
-            <span class="mt-2 block text-cream/85"><%= s.label %></span>
-          </div>
-        <% }); %>
-      </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          <% site.stats.forEach(function(s, i){ %>
+            <div class="text-center" data-reveal data-delay="<%= i*90 %>">
+              <span class="counter block font-display text-5xl md:text-6xl font-semibold text-accent" data-target="<%= s.value %>" data-suffix="<%= s.suffix %>">0<%= s.suffix %></span>
+              <span class="mt-3 block text-cream/75 font-light text-sm tracking-wide"><%= s.label %></span>
+            </div>
+          <% }); %>
+        </div>
 
-      <h3 class="font-serif text-2xl md:text-3xl font-bold text-center mb-12" data-reveal>Đặt Gạo Dễ Dàng – Nhận Hàng Nhanh Chóng</h3>
-      <div class="grid md:grid-cols-4 gap-6">
-        <% const steps = [
-          'Liên hệ Hotline/Zalo – chọn loại gạo & số lượng bạn cần.',
-          'Nhận báo giá tận gốc & được tư vấn loại gạo phù hợp.',
-          'Chốt đơn – xưởng đóng gói theo quy cách 5/10/25/50kg.',
-          'Giao tận nơi khắp Đà Nẵng – kiểm hàng, thanh toán.'
-        ]; %>
-        <% steps.forEach(function(st, i){ %>
-          <div class="relative bg-white/5 rounded-2xl p-6 border border-white/10" data-reveal data-delay="<%= i*100 %>">
-            <span class="absolute -top-4 left-6 w-9 h-9 grid place-items-center rounded-full bg-accent text-primary-dark font-bold shadow"><%= i+1 %></span>
-            <p class="mt-3 leading-relaxed"><%= st %></p>
-          </div>
-        <% }); %>
+        <div class="text-center mb-12" data-reveal>
+          <h3 class="font-display text-3xl md:text-4xl font-semibold text-cream">Đặt gạo dễ dàng, nhận hàng nhanh chóng</h3>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <% const steps = [
+            'Liên hệ Hotline/Zalo — chọn loại gạo & số lượng bạn cần.',
+            'Nhận báo giá tận gốc & được tư vấn loại gạo phù hợp.',
+            'Chốt đơn — xưởng đóng gói theo quy cách 5/10/25/50kg.',
+            'Giao tận nơi khắp Đà Nẵng — kiểm hàng, thanh toán.'
+          ]; %>
+          <% steps.forEach(function(st, i){ %>
+            <div data-reveal data-delay="<%= i*100 %>">
+              <span class="font-display text-3xl font-semibold text-accent">0<%= i+1 %></span>
+              <div class="hairline !bg-white/15 my-4"></div>
+              <p class="text-cream/80 font-light leading-relaxed text-[0.95rem]"><%= st %></p>
+            </div>
+          <% }); %>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== FORM BÁO GIÁ ===================== -->
-  <section id="bao-gia" class="py-16 md:py-24 bg-white">
-    <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
-      <div class="flex flex-col justify-center" data-reveal>
+  <section id="bao-gia" class="section-tight">
+    <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div data-reveal>
         <span class="eyebrow">Báo giá sỉ &amp; lẻ</span>
-        <h2 class="section-title text-left">Nhận Báo Giá Trong 5 Phút</h2>
-        <p class="text-text-soft leading-relaxed mb-8">
-          Để lại thông tin, đội ngũ Xướng Hương sẽ liên hệ tư vấn và gửi bảng giá tốt nhất cho bạn
-          ngay lập tức. Hoàn toàn miễn phí, không ràng buộc.
+        <h2 class="section-title">Nhận báo giá trong 5 phút</h2>
+        <p class="lead mb-10 measure">
+          Để lại thông tin, đội ngũ Xướng Hương sẽ liên hệ tư vấn và gửi bảng giá tốt nhất
+          cho bạn ngay lập tức. Hoàn toàn miễn phí, không ràng buộc.
         </p>
-        <div class="space-y-4">
-          <a href="tel:<%= site.hotline %>" class="contact-pill">
-            <span class="contact-ico bg-primary">📞</span>
-            <span><span class="block text-sm text-text-soft">Hotline nhận cuộc gọi</span><strong class="text-lg text-primary"><%= site.hotlinePretty %></strong></span>
+        <div>
+          <a href="tel:<%= site.hotline %>" class="contact-row">
+            <span class="contact-ico">📞</span>
+            <span><span class="block text-xs text-text-soft uppercase tracking-wide">Hotline</span><strong class="text-lg text-primary-dark"><%= site.hotlinePretty %></strong></span>
           </a>
-          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="contact-pill">
-            <span class="contact-ico bg-zalo">💬</span>
-            <span><span class="block text-sm text-text-soft">Zalo tư vấn nhanh</span><strong class="text-lg text-zalo"><%= site.zaloPretty %></strong></span>
+          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="contact-row">
+            <span class="contact-ico">💬</span>
+            <span><span class="block text-xs text-text-soft uppercase tracking-wide">Zalo tư vấn</span><strong class="text-lg text-zalo"><%= site.zaloPretty %></strong></span>
           </a>
-          <a href="mailto:<%= site.email %>" class="contact-pill">
-            <span class="contact-ico bg-secondary">✉</span>
-            <span><span class="block text-sm text-text-soft">Email</span><strong class="text-lg text-secondary"><%= site.email %></strong></span>
+          <a href="mailto:<%= site.email %>" class="contact-row !border-b-0">
+            <span class="contact-ico">✉</span>
+            <span><span class="block text-xs text-text-soft uppercase tracking-wide">Email</span><strong class="text-lg text-secondary"><%= site.email %></strong></span>
           </a>
         </div>
       </div>
 
-      <div class="bg-cream rounded-3xl p-7 md:p-9 border border-border-soft shadow-soft" data-reveal data-delay="140">
+      <div class="glass-strong p-8 md:p-11" data-reveal data-delay="140">
         <%- include('partials/quote-form') %>
       </div>
     </div>
   </section>
 
   <!-- ===================== FAQ ===================== -->
-  <section class="py-16 md:py-24 grain-pattern">
+  <section class="section-tight">
     <div class="container mx-auto max-w-3xl">
-      <div class="text-center mb-14" data-reveal>
-        <span class="eyebrow">Câu hỏi thường gặp</span>
-        <h2 class="section-title">Bạn Đang Thắc Mắc Điều Gì?</h2>
-        <p class="text-text-soft">Giải đáp nhanh các câu hỏi phổ biến nhất từ khách hàng B2B &amp; B2C.</p>
+      <div class="text-center mb-16" data-reveal>
+        <span class="eyebrow centered">Câu hỏi thường gặp</span>
+        <h2 class="section-title">Bạn đang thắc mắc điều gì?</h2>
       </div>
 
-      <div class="space-y-3" data-reveal data-delay="100">
+      <div data-reveal data-delay="100">
         <% const faqs = [
-          {
-            q: 'Đặt hàng tối thiểu bao nhiêu kg? Có cần đặt cọc không?',
-            a: 'Không có số lượng tối thiểu — mua lẻ từ 5kg cũng giao. Đối với đơn sỉ (từ 100kg trở lên), chúng tôi báo giá riêng ưu đãi hơn. Thanh toán khi nhận hàng, không cần đặt cọc với khách hàng lần đầu.'
-          },
-          {
-            q: 'Giao hàng ở đâu? Có mất phí vận chuyển không?',
-            a: 'Giao miễn phí toàn bộ khu vực Đà Nẵng cho đơn từ 50kg trở lên. Đơn lẻ dưới 50kg tính phí vận chuyển theo khoảng cách. Các tỉnh lân cận (Quảng Nam, Huế) liên hệ để thỏa thuận cước.'
-          },
-          {
-            q: 'Gạo có giấy chứng nhận chất lượng không?',
-            a: 'Có đầy đủ: Chứng nhận VietGAP, Giấy chứng nhận cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm (ATVSTP). Xuất hóa đơn VAT cho khách hàng doanh nghiệp khi có yêu cầu.'
-          },
-          {
-            q: 'Nhà hàng/đại lý đặt hàng thường xuyên có chiết khấu không?',
-            a: 'Có chính sách chiết khấu lũy kế cho đối tác ký hợp đồng dài hạn: 3–8% tùy sản lượng hàng tháng. Liên hệ hotline 0935 999 087 để nhận báo giá sỉ và thỏa thuận hợp đồng cung ứng.'
-          },
-          {
-            q: 'Muốn xem trực tiếp kho gạo trước khi quyết định có được không?',
-            a: 'Hoàn toàn được và rất hoan nghênh! Xưởng mở cửa từ 7:00 – 19:00 mỗi ngày. Bạn có thể đến trực tiếp tại 111 Nguyễn Chí Diễu, Đà Nẵng hoặc nhắn Zalo trước để được đón tiếp chu đáo.'
-          },
-          {
-            q: 'Đặt hàng qua kênh nào nhanh nhất?',
-            a: 'Nhắn Zalo 0905 057 146 là nhanh nhất — thường phản hồi trong vài phút. Bạn cũng có thể gọi Hotline 0935 999 087 hoặc để lại form báo giá trên website, chúng tôi sẽ chủ động liên hệ lại ngay.'
-          }
+          { q:'Đặt hàng tối thiểu bao nhiêu? Có cần đặt cọc không?', a:'Không có số lượng tối thiểu — mua lẻ từ 5kg cũng giao. Đơn sỉ (từ 100kg) được báo giá riêng ưu đãi hơn. Thanh toán khi nhận hàng, không cần đặt cọc với khách hàng lần đầu.' },
+          { q:'Giao hàng ở đâu? Có mất phí vận chuyển không?', a:'Giao miễn phí toàn bộ khu vực Đà Nẵng cho đơn từ 50kg trở lên. Đơn lẻ dưới 50kg tính phí theo khoảng cách. Các tỉnh lân cận (Quảng Nam, Huế) liên hệ để thỏa thuận cước.' },
+          { q:'Gạo có giấy chứng nhận chất lượng không?', a:'Có đầy đủ: Chứng nhận VietGAP và Giấy chứng nhận cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm (ATVSTP). Xuất hóa đơn VAT cho khách hàng doanh nghiệp khi có yêu cầu.' },
+          { q:'Đặt hàng thường xuyên có chiết khấu không?', a:'Có chính sách chiết khấu lũy kế cho đối tác ký hợp đồng dài hạn: 3–8% tùy sản lượng hàng tháng. Liên hệ Hotline 0935 999 087 để nhận báo giá sỉ và thỏa thuận hợp đồng cung ứng.' },
+          { q:'Muốn xem trực tiếp kho gạo trước khi mua được không?', a:'Hoàn toàn được và rất hoan nghênh! Xưởng mở cửa 7:00–19:00 mỗi ngày tại 111 Nguyễn Chí Diễu, Đà Nẵng. Bạn có thể nhắn Zalo trước để được đón tiếp chu đáo.' },
+          { q:'Đặt hàng qua kênh nào nhanh nhất?', a:'Nhắn Zalo 0905 057 146 là nhanh nhất — thường phản hồi trong vài phút. Bạn cũng có thể gọi Hotline hoặc để lại form báo giá, chúng tôi sẽ chủ động liên hệ lại ngay.' }
         ]; %>
-        <% faqs.forEach(function(faq, i){ %>
-          <div class="faq-item bg-white rounded-2xl border border-border-soft overflow-hidden">
-            <button class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-text-main hover:text-primary transition-colors" aria-expanded="false">
+        <% faqs.forEach(function(faq){ %>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
               <span><%= faq.q %></span>
-              <span class="faq-icon flex-shrink-0 w-8 h-8 grid place-items-center rounded-full bg-accent-soft text-primary transition-transform duration-300">+</span>
+              <span class="faq-icon">+</span>
             </button>
-            <div class="faq-body max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-              <p class="px-6 pb-5 text-text-soft leading-relaxed"><%= faq.a %></p>
+            <div class="faq-body">
+              <p class="text-text-soft font-light leading-relaxed"><%= faq.a %></p>
             </div>
           </div>
         <% }); %>
       </div>
 
-      <div class="text-center mt-10" data-reveal data-delay="200">
-        <p class="text-text-soft mb-4">Còn câu hỏi khác? Nhắn trực tiếp cho chúng tôi!</p>
-        <a href="<%= site.zaloLink %>" target="_blank" rel="noopener"
-           class="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-cream font-semibold shadow hover:bg-primary-dark transition">
-          💬 Hỏi qua Zalo ngay
-        </a>
+      <div class="text-center mt-14" data-reveal data-delay="200">
+        <p class="text-text-soft font-light mb-5">Còn câu hỏi khác? Nhắn trực tiếp cho chúng tôi.</p>
+        <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-primary">💬 Hỏi qua Zalo ngay</a>
       </div>
     </div>
   </section>
 
   <!-- ===================== CTA CUỐI ===================== -->
-  <section class="py-14 bg-accent relative overflow-hidden">
-    <div class="container mx-auto text-center relative z-10" data-reveal>
-      <h2 class="font-serif text-2xl md:text-3xl font-bold text-primary-dark mb-3">Cần Tư Vấn Ngay? Gọi Cho Xướng Hương!</h2>
-      <p class="text-primary-dark/80 mb-7 max-w-xl mx-auto">Đừng ngần ngại liên hệ – chúng tôi luôn sẵn sàng phục vụ bạn 7 ngày trong tuần.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="tel:<%= site.hotline %>" class="btn-shine px-8 py-4 rounded-full bg-primary text-cream font-bold shadow hover:-translate-y-0.5 transition-transform">📞 Hotline: <%= site.hotlinePretty %></a>
-        <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-zalo text-white font-bold shadow hover:-translate-y-0.5 transition-transform">💬 Zalo: <%= site.zaloPretty %></a>
+  <section class="section-tight">
+    <div class="container mx-auto">
+      <div class="glass-strong p-12 md:p-20 text-center" data-reveal>
+        <span class="eyebrow centered">Sẵn sàng phục vụ 7 ngày/tuần</span>
+        <h2 class="section-title">Cần tư vấn ngay? Gọi cho Xướng Hương</h2>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+          <a href="tel:<%= site.hotline %>" class="btn btn-primary btn-lg">📞 Hotline: <%= site.hotlinePretty %></a>
+          <a href="<%= site.zaloLink %>" target="_blank" rel="noopener" class="btn btn-zalo btn-lg">💬 Zalo: <%= site.zaloPretty %></a>
+        </div>
       </div>
     </div>
   </section>

@@ -28,10 +28,10 @@
   <!-- Favicon (emoji SVG tạm — thay bằng logo thật khi có) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>" />
 
-  <!-- Fonts -->
+  <!-- Fonts: Cormorant Garamond (headings) + Inter (body) — đều có subset tiếng Việt -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS đã biên dịch (không phụ thuộc CDN) -->
   <link rel="stylesheet" href="/css/tailwind.css" />
@@ -59,4 +59,15 @@
   }
   </script>
 </head>
-<body class="bg-cream text-text-main antialiased font-sans overflow-x-hidden">
+<body class="text-text-main antialiased font-sans overflow-x-hidden">
+  <!-- ===================== NỀN VIDEO CÁNH ĐỒNG (toàn cục) =====================
+       Thả file public/img/canh-dong.mp4 (+ canh-dong-poster.jpg) vào là tự chạy.
+       Khi chưa có video → tự dùng lớp gradient động .field-fallback. -->
+  <div class="field-bg" aria-hidden="true">
+    <div class="field-fallback"></div>
+    <video autoplay muted loop playsinline preload="none" poster="/img/canh-dong-poster.jpg"
+           onerror="this.style.display='none'">
+      <source src="/img/canh-dong.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="field-veil" aria-hidden="true"></div>
