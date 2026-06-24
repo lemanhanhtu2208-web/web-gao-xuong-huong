@@ -31,6 +31,16 @@
       --shadow-sm:0 6px 20px rgba(58,44,12,.07);
     }
 
+    /* ════ Signature: grain texture overlay ════ */
+    .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    /* ════ Signature: arched image shape ════ */
+    .arch{border-radius:13rem 13rem 1.4rem 1.4rem!important}
+    @media(max-width:640px){.arch{border-radius:8rem 8rem 1.2rem 1.2rem!important}}
+
+    /* ════ Signature: editorial index number ════ */
+    .idx{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.4rem,4vw,3.4rem);line-height:.85;color:transparent;-webkit-text-stroke:1.4px var(--gold);margin-bottom:.7rem;opacity:.55}
+
     /* ════ Reset ════ */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;scroll-padding-top:120px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -121,6 +131,8 @@
     .hero-trust .ht{display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:var(--mt);font-weight:400}
     .hero-trust .ht svg{width:1.05rem;height:1.05rem;color:var(--sg)}
     .hero-media{position:relative}
+    .hero-media::before{content:'';position:absolute;inset:16px -16px -16px 16px;border:1.5px solid var(--gold);border-radius:13rem 13rem 1.4rem 1.4rem;z-index:-1;opacity:.55}
+    @media(max-width:640px){.hero-media::before{inset:10px -10px -10px 10px;border-radius:8rem 8rem 1.2rem 1.2rem}}
     .hero-media .ph{border-radius:1.4rem;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3.05}
     .hero-media .ph img{width:100%;height:100%;object-fit:cover}
     .hero-float{position:absolute;background:var(--white);border-radius:1rem;box-shadow:var(--shadow);padding:.85rem 1.1rem;display:flex;align-items:center;gap:.7rem}
@@ -299,6 +311,7 @@
   </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ═══ ICONS ═══ -->
 <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
@@ -385,7 +398,7 @@
       </div>
     </div>
     <div class="hero-media rv d2">
-      <div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3AclOlUxgkJaQzSmE2bsgyeDdCc/hf_20260620_105045_944e4fef-1f11-4d8f-88c3-9f7c7374f661.png" alt="Gạo sạch Xướng Hương đổ ra từ túi đay" onerror="riceFB(this)" /></div>
+      <div class="ph arch"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3AclOlUxgkJaQzSmE2bsgyeDdCc/hf_20260620_105045_944e4fef-1f11-4d8f-88c3-9f7c7374f661.png" alt="Gạo sạch Xướng Hương đổ ra từ túi đay" onerror="riceFB(this)" /></div>
       <div class="hero-float tl">
         <span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-award"/></svg></span>
         <span><b>10+ năm</b><small>Uy tín tại Đà Nẵng</small></span>
@@ -415,6 +428,7 @@
   <div class="wrap">
     <div class="head-row rv">
       <div>
+        <span class="idx">01</span>
         <span class="eyebrow">Danh mục sản phẩm</span>
         <h2 class="f-h2" style="margin-bottom:0">Các dòng gạo của Xướng Hương</h2>
       </div>
@@ -531,6 +545,7 @@
 <section id="quy-trinh" class="section" style="background:var(--c)">
   <div class="wrap">
     <div class="mb-head center rv">
+      <span class="idx" style="-webkit-text-stroke-color:var(--gold)">02</span>
       <span class="eyebrow center">Quy trình chuẩn</span>
       <h2 class="f-h2">Từ cánh đồng đến bữa cơm — 4 bước minh bạch</h2>
       <p class="f-lead">Mỗi mẻ gạo đều đi qua quy trình kiểm soát chặt chẽ để đảm bảo chất lượng và an toàn.</p>
@@ -547,7 +562,7 @@
 <!-- ═══ GIỚI THIỆU ═══ -->
 <section id="gioi-thieu" class="section">
   <div class="wrap about-grid">
-    <div class="about-media rv">
+    <div class="about-media arch rv">
       <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3AclOlUxgkJaQzSmE2bsgyeDdCc/hf_20260620_105827_a8b59320-d39e-4900-a65e-011a97a436a3.png" alt="Kho xưởng gạo Xướng Hương" onerror="riceFB(this)" />
       <div class="about-stat">
         <div><div class="n">100+</div><small>Tấn / tháng</small></div>
@@ -556,6 +571,7 @@
       </div>
     </div>
     <div class="rv d1">
+      <span class="idx">03</span>
       <span class="eyebrow">Về xưởng Xướng Hương</span>
       <h2 class="f-h2">Xưởng gạo uy tín giữa lòng Đà Nẵng</h2>
       <p class="f-lead" style="margin-bottom:1rem">Thành lập từ năm 2014 tại 111 Nguyễn Chí Diễu, Xướng Hương khởi đầu là xưởng xay xát gia đình. Hơn 10 năm qua, chúng tôi trở thành đối tác tin cậy của hàng trăm nhà hàng, quán ăn và hộ gia đình khắp Đà Nẵng.</p>
@@ -602,6 +618,7 @@
 <section id="danh-gia" class="section">
   <div class="wrap">
     <div class="mb-head center rv">
+      <span class="idx" style="-webkit-text-stroke-color:var(--gold)">04</span>
       <span class="eyebrow center">Khách hàng nói gì</span>
       <h2 class="f-h2">Được tin dùng bởi nhà hàng &amp; gia đình</h2>
     </div>
